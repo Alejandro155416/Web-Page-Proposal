@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Envejecimiento - Observatorio de Medicina</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="page-shell">
+
+    <section class="ind-hero-banner" style="--bg:url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1200&q=80');--c1:#5b2d8e;--c2:#7c3aed">
+      <div class="ind-hero-inner">
+        <div class="ind-breadcrumb-light">Inicio / Indicadores / <strong>Envejecimiento</strong></div>
+        <div class="ind-hero-row">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
+          <div><h1>Envejecimiento Poblacional</h1><p>Análisis demográfico y salud en adultos mayores</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEXTO + VIDEO -->
+    <section class="ind-intro-section container">
+      <div class="ind-intro-grid">
+        <div class="ind-intro-text">
+          <h2>¿Qué es el envejecimiento poblacional?</h2>
+          <p>El envejecimiento poblacional es el proceso por el cual la proporción de personas mayores de 65 años aumenta progresivamente en relación al total de la población. Tungurahua experimenta una transición demográfica acelerada: en 2024, el <strong>10.8%</strong> de la población supera los 65 años, y se proyecta que alcanzará el <strong>14.9%</strong> para 2035.</p>
+          <p>Este fenómeno representa uno de los mayores desafíos para los sistemas de salud pública, ya que los adultos mayores presentan mayor prevalencia de enfermedades crónicas, mayor necesidad de atención médica especializada y mayor vulnerabilidad social. La esperanza de vida en Tungurahua ha aumentado de 67 años en 1990 a 75 años en 2024.</p>
+          <p>El Observatorio monitorea indicadores clave como el acceso a servicios de salud primaria, tasas de dependencia funcional, cobertura de programas de atención geriátrica y condiciones de vida de los adultos mayores en zonas urbanas y rurales de la provincia.</p>
+          <div class="ind-intro-facts">
+            <div class="ind-fact"><strong>75 años</strong><span>Esperanza de vida 2024</span></div>
+            <div class="ind-fact"><strong>10.8%</strong><span>Población &gt;65 años</span></div>
+            <div class="ind-fact"><strong>68.5%</strong><span>Acceso a salud primaria</span></div>
+          </div>
+        </div>
+                        <div class="ind-intro-video">
+          <div class="video-wrap">
+            <a href="https://www.youtube.com/watch?v=FeYko_REaoQ" target="_blank" rel="noopener" class="yt-thumb-link">
+              <img src="https://img.youtube.com/vi/FeYko_REaoQ/hqdefault.jpg" alt="Envejecimiento poblacional" />
+              <div class="yt-play-btn"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#ff0000"/><path d="M45 24 27 14v20" fill="#fff"/></svg></div>
+            </a>
+          </div>
+          <p class="video-caption">Envejecimiento saludable — OMS</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KPI CARDS -->
+    <section class="ind-kpis container">
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="kpi-top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span class="kpi-label">Población &gt;65 años</span></div><div class="kpi-value" style="color:#7c3aed">10.8%</div><div class="kpi-trend">↑ 0.5 pp por año</div></div>
+        <div class="kpi-card"><div class="kpi-top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#27ae60" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span class="kpi-label">Acceso a salud</span></div><div class="kpi-value" style="color:#27ae60">68.5%</div><div class="kpi-trend">↑ Cobertura primaria</div></div>
+        <div class="kpi-card"><div class="kpi-top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg><span class="kpi-label">Dependencia moderada</span></div><div class="kpi-value" style="color:#e74c3c">35.2%</div><div class="kpi-trend">↑ Requiere apoyo</div></div>
+        <div class="kpi-card"><div class="kpi-top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="kpi-label">Proyección 2035</span></div><div class="kpi-value" style="color:#3b82f6">14.9%</div><div class="kpi-trend">↑ Tendencia creciente</div></div>
+      </div>
+    </section>
+
+    <!-- GRÁFICAS -->
+    <section class="ind-chart-section container">
+      <div class="ind-chart-card">
+        <div class="ind-chart-header"><h2>Evolución de la Población Mayor de 65 Años (2010–2024)</h2><p>Porcentaje de adultos mayores sobre el total de la población en Tungurahua</p></div>
+        <div class="ind-chart-wrap"><canvas id="chartEnvejecimiento"></canvas></div>
+      </div>
+    </section>
+
+    <!-- DATOS TUNGURAHUA -->
+    <section class="ind-two-col container">
+      <div class="ind-chart-card">
+        <div class="ind-chart-header"><h2>Distribución por Grupo de Edad - Tungurahua (2024)</h2><p>Porcentaje de adultos mayores por rango etario en la provincia</p></div>
+        <div class="ind-chart-wrap" style="max-height:320px"><canvas id="chartEdadesTungurahua"></canvas></div>
+        <div style="text-align: center; font-size: 0.85rem; color: #666; margin-top: 12px;">
+          <span style="margin: 0 8px;"><strong>65–69:</strong> 38%</span>
+          <span style="margin: 0 8px;"><strong>70–74:</strong> 26%</span>
+          <span style="margin: 0 8px;"><strong>75–79:</strong> 19%</span>
+          <span style="margin: 0 8px;"><strong>80–84:</strong> 12%</span>
+          <span style="margin: 0 8px;"><strong>85+:</strong> 5%</span>
+        </div>
+      </div>
+      <div class="ind-info-card">
+        <h2>Datos Tungurahua</h2>
+        <div class="ind-intro-facts">
+          <div class="ind-fact"><strong>10.8%</strong><span>Población &gt;65 años</span></div>
+          <div class="ind-fact"><strong>68.5%</strong><span>Acceso a salud primaria</span></div>
+          <div class="ind-fact"><strong>35.2%</strong><span>Dependencia moderada</span></div>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.9rem; color: #555;">La provincia de Tungurahua presenta un envejecimiento poblacional ligeramente por debajo de la media nacional, con mayor proporción en el rango 65-69 años. El acceso a servicios de salud primaria es inferior al promedio nacional, identificándose como área prioritaria para intervención.</p>
+      </div>
+    </section>
+
+    <section class="ind-table-section container">
+      <div class="ind-chart-card">
+        <div class="ind-chart-header"><h2>Datos Históricos</h2><p>Evolución anual del porcentaje de población mayor de 65 años</p></div>
+        <div class="ind-table-wrap">
+          <table class="ind-table">
+            <thead><tr><th>Año</th><th>% Pob. &gt;65</th><th>Acceso salud (%)</th><th>Dependencia (%)</th><th>Variación</th></tr></thead>
+            <tbody>
+              <tr><td>2010</td><td>7.1</td><td>57.0</td><td>39.5</td><td class="var-up">—</td></tr>
+              <tr><td>2012</td><td>7.6</td><td>59.2</td><td>38.8</td><td class="var-up">↑ 0.5 pp</td></tr>
+              <tr><td>2014</td><td>8.1</td><td>61.4</td><td>38.1</td><td class="var-up">↑ 0.5 pp</td></tr>
+              <tr><td>2016</td><td>8.7</td><td>63.1</td><td>37.4</td><td class="var-up">↑ 0.6 pp</td></tr>
+              <tr><td>2018</td><td>9.2</td><td>64.8</td><td>36.8</td><td class="var-up">↑ 0.5 pp</td></tr>
+              <tr><td>2020</td><td>9.8</td><td>66.0</td><td>36.3</td><td class="var-up">↑ 0.6 pp</td></tr>
+              <tr><td>2022</td><td>10.3</td><td>67.2</td><td>35.7</td><td class="var-up">↑ 0.5 pp</td></tr>
+              <tr class="row-highlight"><td>2024</td><td><strong>10.8</strong></td><td><strong>68.5</strong></td><td><strong>35.2</strong></td><td class="var-up">↑ 0.5 pp</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="ind-recs container">
+      <h2>Recomendaciones Estratégicas</h2>
+      <div class="recs-grid">
+        <div class="rec-card"><div class="rec-num">01</div><h3>Atención primaria especializada</h3><p>Desarrollar unidades geriátricas en centros de salud de primer nivel para atención preventiva.</p></div>
+        <div class="rec-card"><div class="rec-num">02</div><h3>Programas de actividad física</h3><p>Implementar programas comunitarios de ejercicio para prevenir caídas y mejorar movilidad.</p></div>
+        <div class="rec-card"><div class="rec-num">03</div><h3>Apoyo a cuidadores</h3><p>Capacitar y apoyar a cuidadores familiares con recursos técnicos y psicológicos.</p></div>
+        <div class="rec-card"><div class="rec-num">04</div><h3>Redes de apoyo social</h3><p>Crear centros diurnos y redes comunitarias para reducir el aislamiento en adultos mayores.</p></div>
+      </div>
+    </section>
+
+  </main>
+  <div id="site-footer"></div>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    new Chart(document.getElementById('chartEnvejecimiento'), { type:'line', data:{ labels:['2010','2012','2014','2016','2018','2020','2022','2024'], datasets:[{label:'Población >65 Tungurahua (%)',data:[7.1,7.6,8.1,8.7,9.2,9.8,10.3,10.8],borderColor:'#7c3aed',backgroundColor:'rgba(124,58,237,0.08)',borderWidth:2.5,pointRadius:4,tension:0.3,fill:true},{label:'Acceso a salud (%)',data:[57,59.2,61.4,63.1,64.8,66,67.2,68.5],borderColor:'#27ae60',backgroundColor:'rgba(39,174,96,0.06)',borderWidth:2.5,pointRadius:4,tension:0.3,fill:true}]}, options:{responsive:true,maintainAspectRatio:true,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{usePointStyle:true,padding:20}},tooltip:{backgroundColor:'#fff',titleColor:'#0f172a',bodyColor:'#334155',borderColor:'#e2e8f0',borderWidth:1,padding:12}},scales:{x:{grid:{color:'rgba(0,0,0,0.05)'}},y:{grid:{color:'rgba(0,0,0,0.05)'},ticks:{callback:v=>v+'%'},min:0,max:80}}}});
+    new Chart(document.getElementById('chartEdadesTungurahua'), { type:'doughnut', plugins:[ChartDataLabels], data:{ labels:['65–69 años (38%)','70–74 años (26%)','75–79 años (19%)','80–84 años (12%)','85+ años (5%)'], datasets:[{data:[38,26,19,12,5],backgroundColor:['#7c3aed','#9b59b6','#F57021','#f39c12','#e74c3c'],borderWidth:0}]}, options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{usePointStyle:true,padding:16,font:{size:11}}},datalabels:{color:'#fff',font:{weight:'bold',size:13},formatter:function(value){return value+'%';},anchor:'center',align:'center'}}}});
+    // YouTube IFrame API — fuerza reproducción
+    (function(){var s=document.createElement('script');s.src='https://www.youtube.com/iframe_api';document.head.appendChild(s);})();
+    function onYouTubeIframeAPIReady(){var p=new YT.Player('yt-player',{events:{'onReady':function(e){e.target.mute();e.target.playVideo();}}});}
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

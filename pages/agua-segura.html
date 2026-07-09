@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agua Segura - Observatorio de Medicina</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="page-shell">
+
+    <section class="ind-hero-banner" style="--bg:url('https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=1200&q=80');--c1:#0e7490;--c2:#0891b2">
+      <div class="ind-hero-inner">
+        <div class="ind-breadcrumb-light">Inicio / Indicadores / <strong>Agua Segura</strong></div>
+        <div class="ind-hero-row">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
+          <div><h1>Agua Segura y Saneamiento</h1><p>Acceso a agua potable y saneamiento básico</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ind-intro-section container">
+      <div class="ind-intro-grid">
+        <div class="ind-intro-text">
+          <h2>El agua segura como determinante de salud</h2>
+          <p>El acceso a agua potable segura es un derecho humano fundamental y un determinante crítico de la salud pública. En Tungurahua, el <strong>72.3%</strong> de la población tiene acceso a agua segura en 2024, con una brecha significativa entre zonas urbanas (88.6%) y rurales (48.1%). Esta disparidad representa uno de los principales desafíos sanitarios de la provincia.</p>
+          <p>La falta de agua segura está directamente relacionada con enfermedades diarreicas, cólera, fiebre tifoidea y otras infecciones gastrointestinales que afectan principalmente a niños menores de 5 años. Se estima que el 30% de los casos de desnutrición infantil están asociados a enfermedades causadas por agua contaminada.</p>
+          <p>El Observatorio monitorea la cobertura de agua potable, calidad del agua distribuida, acceso a saneamiento básico y alcantarillado, con especial énfasis en comunidades rurales e indígenas de la provincia de Tungurahua.</p>
+          <div class="ind-intro-facts">
+            <div class="ind-fact"><strong>72.3%</strong><span>Cobertura Tungurahua</span></div>
+            <div class="ind-fact"><strong>88.6%</strong><span>Zona urbana</span></div>
+            <div class="ind-fact"><strong>48.1%</strong><span>Zona rural</span></div>
+          </div>
+        </div>
+                        <div class="ind-intro-video">
+          <div class="video-wrap">
+            <a href="https://www.youtube.com/watch?v=YgXhpZOkYo4" target="_blank" rel="noopener" class="yt-thumb-link">
+              <img src="https://img.youtube.com/vi/YgXhpZOkYo4/hqdefault.jpg" alt="Agua segura y saneamiento" />
+              <div class="yt-play-btn"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#ff0000"/><path d="M45 24 27 14v20" fill="#fff"/></svg></div>
+            </a>
+          </div>
+          <p class="video-caption">Agua segura y salud — OMS</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ind-kpis container">
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="kpi-top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg><span class="kpi-label">Cobertura Tungurahua</span></div><div class="kpi-value" style="color:#0891b2">72.3%</div><div class="kpi-trend">↑ 5.1 pp desde 2020</div></div>
+        <div class="kpi-card"><div class="kpi-top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#27ae60" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="kpi-label">Zona urbana</span></div><div class="kpi-value" style="color:#27ae60">88.6%</div><div class="kpi-trend">↑ Alta cobertura</div></div>
+        <div class="kpi-card"><div class="kpi-top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg><span class="kpi-label">Zona rural</span></div><div class="kpi-value" style="color:#e74c3c">48.1%</div><div class="kpi-trend">↑ Brecha crítica</div></div>
+        <div class="kpi-card"><div class="kpi-top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="kpi-label">Meta 2028</span></div><div class="kpi-value" style="color:#3b82f6">90%</div><div class="kpi-trend">↑ Objetivo provincial</div></div>
+      </div>
+    </section>
+
+    <section class="ind-chart-section container">
+      <div class="ind-chart-card">
+        <div class="ind-chart-header"><h2>Evolución del Acceso a Agua Segura (2010–2024)</h2><p>Porcentaje de la población con acceso a agua potable segura, por área geográfica</p></div>
+        <div class="ind-chart-wrap"><canvas id="chartAgua"></canvas></div>
+      </div>
+    </section>
+
+    <section class="ind-two-col container">
+      <div class="ind-chart-card">
+        <div class="ind-chart-header"><h2>Cobertura por Cantón - Tungurahua (2024)</h2><p>Porcentaje de acceso a agua segura en los cantones de la provincia</p></div>
+        <div class="ind-chart-wrap" style="max-height:320px"><canvas id="chartProvincias"></canvas></div>
+      </div>
+      <div class="ind-info-card">
+        <h2>Principales Brechas</h2>
+        <ul class="ind-factor-list">
+          <li><span class="factor-dot" style="background:#e74c3c"></span><div><strong>Zonas rurales de Tungurahua</strong><p>Comunidades con acceso inferior al 40% en agua tratada, especialmente en parroquias alejadas</p></div></li>
+          <li><span class="factor-dot" style="background:#f39c12"></span><div><strong>Dispersión geográfica</strong><p>La geografía andina dificulta la instalación de infraestructura hídrica en zonas altas</p></div></li>
+          <li><span class="factor-dot" style="background:#9b59b6"></span><div><strong>Calidad del agua</strong><p>El 18% del agua distribuida en Tungurahua no cumple estándares de potabilidad</p></div></li>
+          <li><span class="factor-dot" style="background:#3498db"></span><div><strong>Saneamiento básico</strong><p>Solo el 62% de la población provincial tiene acceso a sistemas de alcantarillado adecuados</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ind-table-section container">
+      <div class="ind-chart-card">
+        <div class="ind-chart-header"><h2>Datos Históricos</h2><p>Evolución anual del acceso a agua segura por área geográfica</p></div>
+        <div class="ind-table-wrap">
+          <table class="ind-table">
+            <thead><tr><th>Año</th><th>Nacional (%)</th><th>Urbano (%)</th><th>Rural (%)</th><th>Variación</th></tr></thead>
+            <tbody>
+              <tr><td>2010</td><td>57.4</td><td>76.2</td><td>33.5</td><td class="var-up">—</td></tr>
+              <tr><td>2012</td><td>59.8</td><td>78.0</td><td>35.8</td><td class="var-down">↑ 2.4 pp</td></tr>
+              <tr><td>2014</td><td>62.1</td><td>79.8</td><td>38.1</td><td class="var-down">↑ 2.3 pp</td></tr>
+              <tr><td>2016</td><td>64.5</td><td>81.6</td><td>40.4</td><td class="var-down">↑ 2.4 pp</td></tr>
+              <tr><td>2018</td><td>66.7</td><td>83.3</td><td>42.6</td><td class="var-down">↑ 2.2 pp</td></tr>
+              <tr><td>2020</td><td>67.2</td><td>84.1</td><td>43.1</td><td class="var-down">↑ 0.5 pp</td></tr>
+              <tr><td>2022</td><td>69.8</td><td>86.4</td><td>45.6</td><td class="var-down">↑ 2.6 pp</td></tr>
+              <tr class="row-highlight"><td>2024</td><td><strong>72.3</strong></td><td><strong>88.6</strong></td><td><strong>48.1</strong></td><td class="var-down">↑ 2.5 pp</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="ind-recs container">
+      <h2>Recomendaciones Estratégicas</h2>
+      <div class="recs-grid">
+        <div class="rec-card"><div class="rec-num">01</div><h3>Infraestructura rural</h3><p>Invertir en sistemas de captación y distribución de agua en comunidades rurales alejadas.</p></div>
+        <div class="rec-card"><div class="rec-num">02</div><h3>Control de calidad</h3><p>Fortalecer los sistemas de monitoreo y potabilización del agua distribuida.</p></div>
+        <div class="rec-card"><div class="rec-num">03</div><h3>Saneamiento básico</h3><p>Ampliar la cobertura de alcantarillado y sistemas de tratamiento de aguas residuales.</p></div>
+        <div class="rec-card"><div class="rec-num">04</div><h3>Educación hídrica</h3><p>Promover prácticas de higiene y uso responsable del agua en comunidades vulnerables.</p></div>
+      </div>
+    </section>
+
+  </main>
+  <div id="site-footer"></div>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    new Chart(document.getElementById('chartAgua'), { type:'line', data:{ labels:['2010','2012','2014','2016','2018','2020','2022','2024'], datasets:[{label:'Tungurahua (%)',data:[57.4,59.8,62.1,64.5,66.7,67.2,69.8,72.3],borderColor:'#0891b2',backgroundColor:'rgba(8,145,178,0.08)',borderWidth:2.5,pointRadius:4,tension:0.3,fill:true},{label:'Urbano (%)',data:[76.2,78.0,79.8,81.6,83.3,84.1,86.4,88.6],borderColor:'#27ae60',backgroundColor:'rgba(39,174,96,0.06)',borderWidth:2.5,pointRadius:4,tension:0.3,fill:true},{label:'Rural (%)',data:[33.5,35.8,38.1,40.4,42.6,43.1,45.6,48.1],borderColor:'#e74c3c',backgroundColor:'rgba(231,76,60,0.06)',borderWidth:2.5,pointRadius:4,tension:0.3,fill:true}]}, options:{responsive:true,maintainAspectRatio:true,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{usePointStyle:true,padding:20}},tooltip:{backgroundColor:'#fff',titleColor:'#0f172a',bodyColor:'#334155',borderColor:'#e2e8f0',borderWidth:1,padding:12}},scales:{x:{grid:{color:'rgba(0,0,0,0.05)'}},y:{grid:{color:'rgba(0,0,0,0.05)'},ticks:{callback:v=>v+'%'},min:0,max:100}}}});
+    new Chart(document.getElementById('chartProvincias'), { type:'bar', plugins:[ChartDataLabels], data:{ labels:['Ambato','Baños','Pelileo','Píllaro','Patate','Quero','Tisaleo'], datasets:[{label:'Cobertura (%)',data:[88.6,79.4,71.2,63.8,58.5,51.3,48.1],backgroundColor:['#27ae60','#27ae60','#f39c12','#f39c12','#e74c3c','#e74c3c','#e74c3c'],borderRadius:6,borderSkipped:false}]}, options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#fff',titleColor:'#0f172a',bodyColor:'#334155',borderColor:'#e2e8f0',borderWidth:1,padding:10,callbacks:{label:ctx=>' '+ctx.parsed.y+'%'}},datalabels:{anchor:'end',align:'top',color:'#1a1a1a',font:{weight:'bold',size:12},formatter:function(value){return value+'%';}}},scales:{x:{grid:{display:false},ticks:{font:{size:11}}},y:{grid:{color:'rgba(0,0,0,0.05)'},ticks:{callback:v=>v+'%',font:{size:11}},min:0,max:100}}}});
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

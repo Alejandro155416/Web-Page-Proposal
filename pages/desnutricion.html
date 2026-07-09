@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malnutrición - Observatorio de Medicina</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="page-shell">
+
+    <!-- HERO -->
+    <section class="ind-hero-banner" style="--bg:url('https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=1200&q=80');--c1:#c0392b;--c2:#e74c3c">
+      <div class="ind-hero-inner">
+        <div class="ind-breadcrumb-light">Inicio / Indicadores / <strong>Malnutrición</strong></div>
+        <div class="ind-hero-row">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
+          <div>
+            <h1>Malnutrición</h1>
+            <p>Monitoreo integral del estado nutricional: desnutrición, sobrepeso y obesidad en la población</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO + VIDEO -->
+    <section class="ind-intro-section container">
+      <div class="ind-intro-grid">
+        <div class="ind-intro-text">
+          <h2>¿Qué es la malnutrición?</h2>
+          <p>La malnutrición abarca tanto la desnutrición como el sobrepeso y la obesidad. En Tungurahua, el <strong>27.4%</strong> de los niños menores de 5 años presenta desnutrición crónica, mientras que el sobrepeso infantil afecta al <strong>14.3%</strong> y la obesidad en adultos alcanza el <strong>29.6%</strong>. Esta doble carga nutricional representa uno de los principales desafíos de salud pública de la provincia.</p>
+          <p>El Observatorio monitorea de forma continua los tres componentes de la malnutrición, identificando zonas críticas y evaluando el impacto de los programas de intervención nutricional en la provincia.</p>
+          <div class="ind-intro-facts">
+            <div class="ind-fact"><strong>27.4%</strong><span>Desnutrición crónica</span></div>
+            <div class="ind-fact"><strong>14.3%</strong><span>Sobrepeso infantil</span></div>
+            <div class="ind-fact"><strong>29.6%</strong><span>Obesidad adultos</span></div>
+          </div>
+        </div>
+        <div class="ind-intro-video">
+          <div class="video-wrap">
+            <a href="https://www.youtube.com/watch?v=ADfqv42L7KI" target="_blank" rel="noopener" class="yt-thumb-link">
+              <img src="https://img.youtube.com/vi/ADfqv42L7KI/hqdefault.jpg" alt="Malnutrición infantil" />
+              <div class="yt-play-btn"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#ff0000"/><path d="M45 24 27 14v20" fill="#fff"/></svg></div>
+            </a>
+          </div>
+          <p class="video-caption">Malnutrición infantil — UNICEF/OPS</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KPI CARDS -->
+    <section class="ind-kpis container">
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-top">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            <span class="kpi-label">Desnutrición crónica</span>
+          </div>
+          <div class="kpi-value" style="color:#e74c3c">27.4%</div>
+          <div class="kpi-trend">Menores de 5 años</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-top">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f39c12" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span class="kpi-label">Sobrepeso infantil</span>
+          </div>
+          <div class="kpi-value" style="color:#f39c12">14.3%</div>
+          <div class="kpi-trend">↑ 2.4 pp en 5 años</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-top">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e67e22" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+            <span class="kpi-label">Obesidad adultos</span>
+          </div>
+          <div class="kpi-value" style="color:#e67e22">29.6%</div>
+          <div class="kpi-trend">↑ Tendencia creciente</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-top">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span class="kpi-label">Meta 2030</span>
+          </div>
+          <div class="kpi-value" style="color:#3b82f6">15.0%</div>
+          <div class="kpi-trend">ODS · ONU</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACORDEÓN DE SUBTEMAS -->
+    <section class="container" style="padding-bottom:3rem">
+
+      <!-- SUBTEMA 1: DESNUTRICIÓN -->
+      <div class="acord-item" id="acord-desnutricion">
+        <button class="acord-header" onclick="toggleAcord('desnutricion')">
+          <div class="acord-title">
+            <span class="acord-dot" style="background:#e74c3c"></span>
+            <h2>Desnutrición</h2>
+            <span class="acord-badge" style="background:rgba(231,76,60,0.1);color:#e74c3c">27.4% prevalencia</span>
+          </div>
+          <svg class="acord-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acord-body" id="body-desnutricion">
+          <div class="acord-content">
+            <div class="acord-intro">
+              <p>La desnutrición crónica afecta al <strong>27.4%</strong> de los niños menores de 5 años en Tungurahua. Se manifiesta como un retraso en el crecimiento (talla baja para la edad) y tiene consecuencias irreversibles en el desarrollo cognitivo, físico y social del niño.</p>
+            </div>
+            <div class="acord-grid-3">
+              <div class="acord-stat-card" style="border-top:3px solid #e74c3c">
+                <strong>27.4%</strong><span>Prevalencia Tungurahua</span>
+              </div>
+              <div class="acord-stat-card" style="border-top:3px solid #e74c3c">
+                <strong>35.8%</strong><span>Zona rural</span>
+              </div>
+              <div class="acord-stat-card" style="border-top:3px solid #e74c3c">
+                <strong>16.2%</strong><span>Zona urbana</span>
+              </div>
+            </div>
+            <div class="acord-two-col">
+              <div>
+                <h3>Causas principales</h3>
+                <ul class="acord-list">
+                  <li><span style="color:#e74c3c">●</span> Pobreza extrema y falta de acceso a alimentos nutritivos</li>
+                  <li><span style="color:#e74c3c">●</span> Prácticas inadecuadas de lactancia materna y alimentación complementaria</li>
+                  <li><span style="color:#e74c3c">●</span> Enfermedades infecciosas recurrentes (diarrea, infecciones respiratorias)</li>
+                  <li><span style="color:#e74c3c">●</span> Falta de acceso a agua segura y saneamiento básico</li>
+                  <li><span style="color:#e74c3c">●</span> Bajo nivel educativo de los cuidadores</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Consecuencias</h3>
+                <ul class="acord-list">
+                  <li><span style="color:#c0392b">●</span> Retraso en el desarrollo cognitivo y bajo rendimiento escolar</li>
+                  <li><span style="color:#c0392b">●</span> Mayor susceptibilidad a enfermedades infecciosas</li>
+                  <li><span style="color:#c0392b">●</span> Menor productividad económica en la vida adulta</li>
+                  <li><span style="color:#c0392b">●</span> Ciclo intergeneracional de pobreza y malnutrición</li>
+                  <li><span style="color:#c0392b">●</span> Mortalidad infantil elevada en casos severos</li>
+                </ul>
+              </div>
+            </div>
+            <div class="acord-chart-wrap">
+              <h3>Evolución de la Desnutrición Crónica (2010–2024)</h3>
+              <canvas id="chartDesnutricion" height="100"></canvas>
+            </div>
+            <div class="acord-recs">
+              <h3>Intervenciones clave</h3>
+              <div class="acord-recs-grid">
+                <div class="acord-rec"><span class="acord-rec-num">01</span><div><strong>Alimentación escolar</strong><p>Ampliar programas en zonas rurales con mayor prevalencia</p></div></div>
+                <div class="acord-rec"><span class="acord-rec-num">02</span><div><strong>Suplementación nutricional</strong><p>Micronutrientes para niños menores de 2 años</p></div></div>
+                <div class="acord-rec"><span class="acord-rec-num">03</span><div><strong>Educación a cuidadores</strong><p>Capacitación en prácticas de alimentación saludable</p></div></div>
+                <div class="acord-rec"><span class="acord-rec-num">04</span><div><strong>Agua y saneamiento</strong><p>Integrar intervenciones hídricas con programas nutricionales</p></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUBTEMA 2: SOBREPESO -->
+      <div class="acord-item" id="acord-sobrepeso">
+        <button class="acord-header" onclick="toggleAcord('sobrepeso')">
+          <div class="acord-title">
+            <span class="acord-dot" style="background:#f39c12"></span>
+            <h2>Sobrepeso</h2>
+            <span class="acord-badge" style="background:rgba(243,156,18,0.1);color:#f39c12">14.3% en niños</span>
+          </div>
+          <svg class="acord-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acord-body" id="body-sobrepeso" style="display:none">
+          <div class="acord-content">
+            <div class="acord-intro">
+              <p>El sobrepeso infantil afecta al <strong>14.3%</strong> de los niños en Tungurahua y ha aumentado 2.4 puntos porcentuales en los últimos 5 años. Se define como un IMC superior al percentil 85 para la edad y sexo, y constituye un factor de riesgo para enfermedades crónicas en la vida adulta.</p>
+            </div>
+            <div class="acord-grid-3">
+              <div class="acord-stat-card" style="border-top:3px solid #f39c12">
+                <strong>14.3%</strong><span>Niños con sobrepeso</span>
+              </div>
+              <div class="acord-stat-card" style="border-top:3px solid #f39c12">
+                <strong>20.1%</strong><span>Adolescentes</span>
+              </div>
+              <div class="acord-stat-card" style="border-top:3px solid #f39c12">
+                <strong>+2.4 pp</strong><span>Incremento en 5 años</span>
+              </div>
+            </div>
+            <div class="acord-two-col">
+              <div>
+                <h3>Factores de riesgo</h3>
+                <ul class="acord-list">
+                  <li><span style="color:#f39c12">●</span> Consumo excesivo de alimentos ultraprocesados y bebidas azucaradas</li>
+                  <li><span style="color:#f39c12">●</span> Sedentarismo y reducción de actividad física</li>
+                  <li><span style="color:#f39c12">●</span> Publicidad de alimentos no saludables dirigida a niños</li>
+                  <li><span style="color:#f39c12">●</span> Entornos alimentarios poco saludables en escuelas</li>
+                  <li><span style="color:#f39c12">●</span> Factores genéticos y metabólicos</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Impacto en la salud</h3>
+                <ul class="acord-list">
+                  <li><span style="color:#e67e22">●</span> Mayor riesgo de desarrollar diabetes tipo 2 en la adultez</li>
+                  <li><span style="color:#e67e22">●</span> Problemas cardiovasculares tempranos</li>
+                  <li><span style="color:#e67e22">●</span> Afectaciones psicológicas: baja autoestima y bullying</li>
+                  <li><span style="color:#e67e22">●</span> Problemas ortopédicos por exceso de peso</li>
+                  <li><span style="color:#e67e22">●</span> Apnea del sueño y problemas respiratorios</li>
+                </ul>
+              </div>
+            </div>
+            <div class="acord-chart-wrap">
+              <h3>Tendencia del Sobrepeso Infantil (2010–2024)</h3>
+              <canvas id="chartSobrepeso" height="100"></canvas>
+            </div>
+            <div class="acord-recs">
+              <h3>Intervenciones clave</h3>
+              <div class="acord-recs-grid">
+                <div class="acord-rec"><span class="acord-rec-num">01</span><div><strong>Entornos escolares saludables</strong><p>Regular la venta de alimentos no saludables en escuelas</p></div></div>
+                <div class="acord-rec"><span class="acord-rec-num">02</span><div><strong>Actividad física</strong><p>Incrementar horas de educación física y recreación activa</p></div></div>
+                <div class="acord-rec"><span class="acord-rec-num">03</span><div><strong>Etiquetado nutricional</strong><p>Implementar semáforo nutricional en productos alimenticios</p></div></div>
+                <div class="acord-rec"><span class="acord-rec-num">04</span><div><strong>Educación familiar</strong><p>Talleres de alimentación saludable para padres y cuidadores</p></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUBTEMA 3: OBESIDAD -->
+      <div class="acord-item" id="acord-obesidad">
+        <button class="acord-header" onclick="toggleAcord('obesidad')">
+          <div class="acord-title">
+            <span class="acord-dot" style="background:#e67e22"></span>
+            <h2>Obesidad</h2>
+            <span class="acord-badge" style="background:rgba(230,126,34,0.1);color:#e67e22">29.6% en adultos</span>
+          </div>
+          <svg class="acord-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acord-body" id="body-obesidad" style="display:none">
+          <div class="acord-content">
+            <div class="acord-intro">
+              <p>La obesidad afecta al <strong>29.6%</strong> de la población adulta en Tungurahua. Se define como un IMC igual o superior a 30 kg/m². Es una enfermedad crónica compleja que incrementa significativamente el riesgo de diabetes, enfermedades cardiovasculares, hipertensión y ciertos tipos de cáncer.</p>
+            </div>
+            <div class="acord-grid-3">
+              <div class="acord-stat-card" style="border-top:3px solid #e67e22">
+                <strong>29.6%</strong><span>Adultos con obesidad</span>
+              </div>
+              <div class="acord-stat-card" style="border-top:3px solid #e67e22">
+                <strong>34.1%</strong><span>Mujeres afectadas</span>
+              </div>
+              <div class="acord-stat-card" style="border-top:3px solid #e67e22">
+                <strong>+6.2 pp</strong><span>Incremento desde 2010</span>
+              </div>
+            </div>
+            <div class="acord-two-col">
+              <div>
+                <h3>Determinantes</h3>
+                <ul class="acord-list">
+                  <li><span style="color:#e67e22">●</span> Dieta hipercalórica con alto contenido de grasas y azúcares</li>
+                  <li><span style="color:#e67e22">●</span> Inactividad física y trabajo sedentario</li>
+                  <li><span style="color:#e67e22">●</span> Factores genéticos y predisposición metabólica</li>
+                  <li><span style="color:#e67e22">●</span> Estrés crónico y trastornos del sueño</li>
+                  <li><span style="color:#e67e22">●</span> Entornos obesogénicos: acceso limitado a alimentos saludables</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Comorbilidades asociadas</h3>
+                <ul class="acord-list">
+                  <li><span style="color:#c0392b">●</span> Diabetes tipo 2: riesgo 5 veces mayor en personas con obesidad</li>
+                  <li><span style="color:#c0392b">●</span> Hipertensión arterial y enfermedades cardiovasculares</li>
+                  <li><span style="color:#c0392b">●</span> Síndrome metabólico y dislipidemia</li>
+                  <li><span style="color:#c0392b">●</span> Apnea obstructiva del sueño</li>
+                  <li><span style="color:#c0392b">●</span> Cáncer de colon, mama y endometrio</li>
+                </ul>
+              </div>
+            </div>
+            <div class="acord-chart-wrap">
+              <h3>Evolución de la Obesidad en Adultos (2010–2024)</h3>
+              <canvas id="chartObesidad" height="100"></canvas>
+            </div>
+            <div class="acord-recs">
+              <h3>Intervenciones clave</h3>
+              <div class="acord-recs-grid">
+                <div class="acord-rec"><span class="acord-rec-num">01</span><div><strong>Políticas alimentarias</strong><p>Impuesto a bebidas azucaradas y alimentos ultraprocesados</p></div></div>
+                <div class="acord-rec"><span class="acord-rec-num">02</span><div><strong>Atención primaria</strong><p>Tamizaje de IMC y consejería nutricional en centros de salud</p></div></div>
+                <div class="acord-rec"><span class="acord-rec-num">03</span><div><strong>Espacios activos</strong><p>Crear entornos urbanos que promuevan la actividad física</p></div></div>
+                <div class="acord-rec"><span class="acord-rec-num">04</span><div><strong>Tratamiento integral</strong><p>Programas multidisciplinarios: nutrición, psicología y ejercicio</p></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    // Acordeón
+    function toggleAcord(id) {
+      const body = document.getElementById('body-' + id);
+      const arrow = document.querySelector('#acord-' + id + ' .acord-arrow');
+      const isOpen = body.style.display !== 'none';
+      body.style.display = isOpen ? 'none' : 'block';
+      arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+      if (!isOpen) renderChart(id);
+    }
+
+    // Abrir el primero por defecto
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('body-desnutricion').style.display = 'block';
+      document.querySelector('#acord-desnutricion .acord-arrow').style.transform = 'rotate(180deg)';
+      renderChart('desnutricion');
+    });
+
+    const chartsRendered = {};
+    function renderChart(id) {
+      if (chartsRendered[id]) return;
+      chartsRendered[id] = true;
+
+      const opts = {
+        responsive: true, maintainAspectRatio: true,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { position: 'bottom', labels: { usePointStyle: true, padding: 20 } },
+          tooltip: { backgroundColor: '#fff', titleColor: '#0f172a', bodyColor: '#334155', borderColor: '#e2e8f0', borderWidth: 1, padding: 12 }
+        },
+        scales: {
+          x: { grid: { color: 'rgba(0,0,0,0.05)' } },
+          y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { callback: v => v + '%' }, min: 0 }
+        }
+      };
+
+      if (id === 'desnutricion') {
+        new Chart(document.getElementById('chartDesnutricion'), {
+          type: 'line',
+          data: {
+            labels: ['2010','2012','2014','2016','2018','2020','2022','2024'],
+            datasets: [
+              { label: 'Tungurahua (%)', data: [29.8,29.4,29.0,28.5,28.0,27.8,27.6,27.4], borderColor:'#e74c3c', backgroundColor:'rgba(231,76,60,0.07)', borderWidth:2.5, pointRadius:4, tension:0.3, fill:true },
+              { label: 'Meta 2030 (%)', data: [15,15,15,15,15,15,15,15], borderColor:'#3b82f6', borderWidth:2, borderDash:[6,4], pointRadius:3, tension:0, fill:false }
+            ]
+          },
+          options: { ...opts, scales: { ...opts.scales, y: { ...opts.scales.y, max: 35 } } }
+        });
+      }
+
+      if (id === 'sobrepeso') {
+        new Chart(document.getElementById('chartSobrepeso'), {
+          type: 'line',
+          data: {
+            labels: ['2010','2012','2014','2016','2018','2020','2022','2024'],
+            datasets: [
+              { label: 'Niños (%)', data: [8.1,9.0,9.9,10.9,11.8,12.7,13.5,14.3], borderColor:'#f39c12', backgroundColor:'rgba(243,156,18,0.07)', borderWidth:2.5, pointRadius:4, tension:0.3, fill:true },
+              { label: 'Adolescentes (%)', data: [13.4,14.4,15.5,16.6,17.6,18.6,19.4,20.1], borderColor:'#e67e22', backgroundColor:'rgba(230,126,34,0.06)', borderWidth:2.5, pointRadius:4, tension:0.3, fill:true }
+            ]
+          },
+          options: { ...opts, scales: { ...opts.scales, y: { ...opts.scales.y, max: 25 } } }
+        });
+      }
+
+      if (id === 'obesidad') {
+        new Chart(document.getElementById('chartObesidad'), {
+          type: 'line',
+          data: {
+            labels: ['2010','2012','2014','2016','2018','2020','2022','2024'],
+            datasets: [
+              { label: 'Total adultos (%)', data: [23.4,24.4,25.4,26.5,27.4,28.2,28.9,29.6], borderColor:'#e67e22', backgroundColor:'rgba(230,126,34,0.07)', borderWidth:2.5, pointRadius:4, tension:0.3, fill:true },
+              { label: 'Mujeres (%)', data: [26.5,27.7,28.9,30.1,31.2,32.2,33.2,34.1], borderColor:'#c0392b', backgroundColor:'rgba(192,57,43,0.06)', borderWidth:2.5, pointRadius:4, tension:0.3, fill:true }
+            ]
+          },
+          options: { ...opts, scales: { ...opts.scales, y: { ...opts.scales.y, max: 40 } } }
+        });
+      }
+    }
+  </script>
+</body>
+</html>

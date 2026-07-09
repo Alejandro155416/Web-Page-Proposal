@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salud Mental - Observatorio de Medicina</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="page-shell">
+
+    <section class="ind-hero-banner" style="--bg:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&q=80');--c1:#4c1d95;--c2:#7c3aed">
+      <div class="container ind-hero-inner">
+        <div class="ind-breadcrumb-light">Inicio / Indicadores / <strong>Salud Mental</strong></div>
+        <div class="ind-hero-row">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
+          <div>
+            <h1>Salud Mental</h1>
+            <p>Prevalencia de trastornos mentales y acceso a servicios</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO + KPIs -->
+    <section class="ind-intro-section container">
+      <div class="ind-intro-grid">
+        <div class="ind-intro-text">
+          <h2>¿Qué es la salud mental?</h2>
+          <p>La salud mental es un estado de bienestar en el que cada individuo desarrolla su potencial, puede afrontar las tensiones de la vida, trabajar de forma productiva y contribuir a su comunidad. En Tungurahua, el <strong>16.4%</strong> de la población adulta presenta algún trastorno mental, siendo la depresión (13.1%) y la ansiedad (10.7%) los más prevalentes.</p>
+          <p>El Observatorio realiza seguimiento continuo de la prevalencia, acceso a servicios especializados y cobertura de programas preventivos en la provincia.</p>
+          <div class="ind-intro-facts">
+            <div class="ind-fact"><strong>16.4%</strong><span>Prevalencia trastornos</span></div>
+            <div class="ind-fact"><strong>13.1%</strong><span>Depresión</span></div>
+            <div class="ind-fact"><strong>52%</strong><span>Acceso a servicios</span></div>
+          </div>
+        </div>
+        <div class="ind-intro-video">
+          <div class="video-wrap">
+            <a href="https://www.youtube.com/watch?v=owr6b1WxWHM" target="_blank" rel="noopener" class="yt-thumb-link">
+              <img src="https://img.youtube.com/vi/owr6b1WxWHM/hqdefault.jpg" alt="Salud mental" />
+              <div class="yt-play-btn"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#ff0000"/><path d="M45 24 27 14v20" fill="#fff"/></svg></div>
+            </a>
+          </div>
+          <p class="video-caption">Salud mental — OPS/OMS</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ind-kpis container">
+      <div class="kpi-grid">
+        <div class="kpi-card kpi-alert">
+          <div class="kpi-top"><span class="kpi-label">Prevalencia trastornos</span><span class="kpi-icon">🧠</span></div>
+          <div class="kpi-value">16.4%</div>
+          <div class="kpi-trend kpi-up">↑ 2.8 pp en 5 años</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-top"><span class="kpi-label">Depresión</span><span class="kpi-icon">😔</span></div>
+          <div class="kpi-value">13.1%</div>
+          <div class="kpi-trend kpi-up">↑ Principal trastorno</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-top"><span class="kpi-label">Ansiedad</span><span class="kpi-icon">😰</span></div>
+          <div class="kpi-value">10.7%</div>
+          <div class="kpi-trend kpi-up">↑ En aumento</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-top"><span class="kpi-label">Acceso a servicios</span><span class="kpi-icon">🏥</span></div>
+          <div class="kpi-value">52%</div>
+          <div class="kpi-trend kpi-up">↑ Brecha de atención</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-top"><span class="kpi-label">Programas preventivos</span><span class="kpi-icon">✅</span></div>
+          <div class="kpi-value">31%</div>
+          <div class="kpi-trend kpi-down">↑ Cobertura actual</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ind-chart-section container">
+      <div class="ind-chart-card">
+        <div class="ind-chart-header">
+          <h2>Evolución de Trastornos de Salud Mental (2010–2024)</h2>
+          <p>Prevalencia de los principales trastornos mentales en la población adulta</p>
+        </div>
+        <div class="ind-chart-wrap">
+          <canvas id="chartMental"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="ind-two-col container">
+      <div class="ind-chart-card">
+        <div class="ind-chart-header">
+          <h2>Distribución por Tipo de Trastorno (2024)</h2>
+          <p>Porcentaje de cada trastorno mental sobre el total de casos registrados</p>
+        </div>
+        <div class="ind-chart-wrap" style="max-height:320px">
+          <canvas id="chartTipos"></canvas>
+        </div>
+      </div>
+      <div class="ind-info-card">
+        <h2>Grupos Vulnerables</h2>
+        <ul class="ind-factor-list">
+          <li><span class="factor-dot" style="background:#e74c3c"></span><div><strong>Jóvenes 15–24 años</strong><p>Mayor incremento de ansiedad y depresión, agravado por redes sociales y presión académica</p></div></li>
+          <li><span class="factor-dot" style="background:#f39c12"></span><div><strong>Adultos mayores</strong><p>Aislamiento social y pérdida de autonomía incrementan el riesgo de depresión</p></div></li>
+          <li><span class="factor-dot" style="background:#9b59b6"></span><div><strong>Mujeres</strong><p>Doble prevalencia de depresión respecto a hombres, asociada a violencia de género</p></div></li>
+          <li><span class="factor-dot" style="background:#3498db"></span><div><strong>Zonas rurales</strong><p>Menor acceso a servicios especializados y mayor estigma social</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ind-table-section container">
+      <div class="ind-chart-card">
+        <div class="ind-chart-header"><h2>Datos Históricos</h2><p>Evolución anual de los indicadores de salud mental</p></div>
+        <div class="ind-table-wrap">
+          <table class="ind-table">
+            <thead><tr><th>Año</th><th>Prevalencia (%)</th><th>Depresión (%)</th><th>Acceso servicios (%)</th><th>Variación</th></tr></thead>
+            <tbody>
+              <tr><td>2010</td><td>11.0</td><td>8.8</td><td>36.0</td><td class="var-up">—</td></tr>
+              <tr><td>2012</td><td>11.7</td><td>9.3</td><td>38.5</td><td class="var-up">↑ 0.7 pp</td></tr>
+              <tr><td>2014</td><td>12.4</td><td>9.9</td><td>41.0</td><td class="var-up">↑ 0.7 pp</td></tr>
+              <tr><td>2016</td><td>13.2</td><td>10.5</td><td>43.8</td><td class="var-up">↑ 0.8 pp</td></tr>
+              <tr><td>2018</td><td>14.1</td><td>11.3</td><td>46.5</td><td class="var-up">↑ 0.9 pp</td></tr>
+              <tr><td>2020</td><td>15.3</td><td>12.2</td><td>48.0</td><td class="var-up">↑ 1.2 pp</td></tr>
+              <tr><td>2022</td><td>15.9</td><td>12.7</td><td>50.2</td><td class="var-up">↑ 0.6 pp</td></tr>
+              <tr class="row-highlight"><td>2024</td><td><strong>16.4</strong></td><td><strong>13.1</strong></td><td><strong>52.0</strong></td><td class="var-up">↑ 0.5 pp</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="ind-recs container">
+      <h2>Recomendaciones Estratégicas</h2>
+      <div class="recs-grid">
+        <div class="rec-card"><div class="rec-num">01</div><h3>Reducción del estigma</h3><p>Campañas de sensibilización para normalizar la búsqueda de ayuda psicológica.</p></div>
+        <div class="rec-card"><div class="rec-num">02</div><h3>Atención primaria</h3><p>Integrar la salud mental en los centros de salud de primer nivel con psicólogos comunitarios.</p></div>
+        <div class="rec-card"><div class="rec-num">03</div><h3>Programas escolares</h3><p>Implementar programas de bienestar emocional en instituciones educativas.</p></div>
+        <div class="rec-card"><div class="rec-num">04</div><h3>Líneas de crisis</h3><p>Fortalecer los servicios de atención en crisis y prevención del suicidio en Tungurahua.</p></div>
+      </div>
+    </section>
+
+  </main>
+  <div id="site-footer"></div>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    new Chart(document.getElementById('chartMental').getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: ['2010','2012','2014','2016','2018','2020','2022','2024'],
+        datasets: [
+          { label: 'Prevalencia Tungurahua (%)', data: [11.0,11.7,12.4,13.2,14.1,15.3,15.9,16.4], borderColor: '#9b59b6', backgroundColor: 'rgba(155,89,182,0.08)', borderWidth: 2.5, pointRadius: 4, pointBackgroundColor: '#9b59b6', tension: 0.3, fill: true },
+          { label: 'Depresión (%)', data: [8.8,9.3,9.9,10.5,11.3,12.2,12.7,13.1], borderColor: '#e74c3c', backgroundColor: 'rgba(231,76,60,0.06)', borderWidth: 2.5, pointRadius: 4, pointBackgroundColor: '#e74c3c', tension: 0.3, fill: true },
+          { label: 'Acceso servicios (%)', data: [36.0,38.5,41.0,43.8,46.5,48.0,50.2,52.0], borderColor: '#27ae60', backgroundColor: 'rgba(39,174,96,0.06)', borderWidth: 2.5, pointRadius: 4, pointBackgroundColor: '#27ae60', tension: 0.3, fill: true }
+        ]
+      },
+      options: { responsive: true, maintainAspectRatio: true, interaction: { mode: 'index', intersect: false }, plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, padding: 20 } }, tooltip: { backgroundColor: '#fff', titleColor: '#0f172a', bodyColor: '#334155', borderColor: '#e2e8f0', borderWidth: 1, padding: 12 } }, scales: { x: { grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { callback: v => v + '%' }, min: 0, max: 70 } } }
+    });
+    new Chart(document.getElementById('chartTipos').getContext('2d'), {
+      type: 'doughnut',
+      plugins: [ChartDataLabels],
+      data: {
+        labels: ['Depresión','Ansiedad','Trastorno bipolar','Esquizofrenia','Otros'],
+        datasets: [{ data: [40, 33, 13, 7, 7], backgroundColor: ['#e74c3c','#f39c12','#9b59b6','#3498db','#95a5a6'], borderWidth: 0 }]
+      },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, padding: 14, font: { size: 11 } } }, datalabels: { color: '#fff', font: { weight: 'bold', size: 13 }, formatter: function(value) { return value + '%'; }, anchor: 'center', align: 'center' } } }
+    });
+    (function(){var s=document.createElement('script');s.src='https://www.youtube.com/iframe_api';document.head.appendChild(s);})();
+    function onYouTubeIframeAPIReady(){var p=new YT.Player('yt-player',{events:{'onReady':function(e){e.target.mute();e.target.playVideo();}}});}
+  </script>
+</body>
+</html>

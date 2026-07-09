@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel - Observatorio de Medicina</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="page-shell">
+    <section class="page-hero container">
+      <h2>Panel — Tungurahua 2024</h2>
+      <p>Visualiza los indicadores clave de salud pública de Tungurahua y accede a información actualizada para la toma de decisiones.</p>
+    </section>
+    <section class="page-content container">
+      <div class="page-detail-grid">
+        <div class="page-copy">
+          <h3>Una vista completa para la salud pública</h3>
+          <p>El panel reúne todos los indicadores de Tungurahua en un solo lugar, con alertas, tendencias y datos comparativos para decisiones más rápidas y efectivas.</p>
+          <ul class="page-list">
+            <li><strong>6 indicadores prioritarios</strong> con análisis inmediato para cada área clave.</li>
+            <li><strong>Actualización continua</strong> de datos y métricas comparativas provinciales.</li>
+            <li><strong>Fácil visualización</strong> con gráficos, tablas y reportes descargables.</li>
+          </ul>
+          <div class="page-graph-block">
+            <h4>Comparativo de indicadores — Tungurahua 2024</h4>
+            <div class="graph-row">
+              <span class="graph-label">Agua Segura</span>
+              <div class="graph-track">
+                <div class="graph-fill" data-value="72.3"><span class="graph-value">72.3%</span></div>
+              </div>
+            </div>
+            <div class="graph-row">
+              <span class="graph-label">Enfermedades Crónicas</span>
+              <div class="graph-track">
+                <div class="graph-fill" data-value="40.2"><span class="graph-value">40.2%</span></div>
+              </div>
+            </div>
+            <div class="graph-row">
+              <span class="graph-label">Desnutrición Crónica</span>
+              <div class="graph-track">
+                <div class="graph-fill" data-value="27.4"><span class="graph-value">27.4%</span></div>
+              </div>
+            </div>
+            <div class="graph-row">
+              <span class="graph-label">Discapacidades</span>
+              <div class="graph-track">
+                <div class="graph-fill" data-value="6.1"><span class="graph-value">6.1%</span></div>
+              </div>
+            </div>
+            <div class="graph-row">
+              <span class="graph-label">Salud Mental</span>
+              <div class="graph-track">
+                <div class="graph-fill" data-value="16.4"><span class="graph-value">16.4%</span></div>
+              </div>
+            </div>
+            <div class="graph-row">
+              <span class="graph-label">Envejecimiento &gt;65</span>
+              <div class="graph-track">
+                <div class="graph-fill" data-value="10.8"><span class="graph-value">10.8%</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gráfico de tendencias -->
+          <div style="margin-top:2rem;">
+            <h4 style="margin-bottom:1rem;font-size:0.95rem;color:var(--gray-900);">Tendencia de indicadores clave (2010–2024)</h4>
+            <canvas id="chartDashboard" height="120"></canvas>
+          </div>
+        </div>
+        <div class="page-aside">
+          <div class="page-stat-grid">
+            <div class="page-stat-card">
+              <strong>24/7</strong>
+              <p>Monitoreo constante de los indicadores.</p>
+            </div>
+            <div class="page-stat-card">
+              <strong>15+</strong>
+              <p>Años de datos históricos verificables.</p>
+            </div>
+            <div class="page-stat-card">
+              <strong>100+</strong>
+              <p>Investigaciones y análisis publicados.</p>
+            </div>
+          </div>
+
+          <!-- Gráfico radar -->
+          <div style="margin-top:1.5rem;background:#fff;border-radius:12px;padding:1.25rem;box-shadow:var(--shadow-sm);border:1px solid var(--gray-200);">
+            <h4 style="font-size:0.9rem;color:var(--gray-900);margin-bottom:1rem;">Perfil de salud — Tungurahua 2024</h4>
+            <canvas id="chartRadar" height="220"></canvas>
+          </div>
+
+          <div class="resource-grid" style="margin-top:1.5rem;">
+            <article class="resource-card">
+              <h4>Informe de salud Tungurahua</h4>
+              <p>Descubre las últimas tendencias en acceso a agua, nutrición y enfermedades crónicas.</p>
+              <a class="button secondary" href="reportes.html" data-action="navigate" data-url="reportes.html">Ver reportes</a>
+            </article>
+            <article class="resource-card">
+              <h4>Indicadores detallados</h4>
+              <p>Explora cada indicador con datos históricos, gráficos y recomendaciones.</p>
+              <a class="button secondary" href="desnutricion.html" data-action="navigate" data-url="desnutricion.html">Ver indicadores</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    new Chart(document.getElementById('chartDashboard'), {
+      type: 'line',
+      data: {
+        labels: ['2010','2012','2014','2016','2018','2020','2022','2024'],
+        datasets: [
+          { label: 'Agua Segura (%)', data: [57.4,59.8,62.1,64.5,66.7,67.2,69.8,72.3], borderColor:'#0891b2', backgroundColor:'rgba(8,145,178,0.07)', borderWidth:2, pointRadius:3, tension:0.3, fill:false },
+          { label: 'Enf. Crónicas (%)', data: [34.8,35.7,36.5,37.3,38.2,38.9,39.6,40.2], borderColor:'#ec4899', backgroundColor:'rgba(236,72,153,0.07)', borderWidth:2, pointRadius:3, tension:0.3, fill:false },
+          { label: 'Desnutrición (%)', data: [29.8,29.4,29.0,28.5,28.0,27.8,27.6,27.4], borderColor:'#f97316', backgroundColor:'rgba(249,115,22,0.07)', borderWidth:2, pointRadius:3, tension:0.3, fill:false },
+          { label: 'Salud Mental (%)', data: [11.0,11.7,12.4,13.2,14.1,15.3,15.9,16.4], borderColor:'#9b59b6', backgroundColor:'rgba(155,89,182,0.07)', borderWidth:2, pointRadius:3, tension:0.3, fill:false }
+        ]
+      },
+      options: { responsive:true, maintainAspectRatio:true, interaction:{mode:'index',intersect:false}, plugins:{ legend:{position:'bottom',labels:{usePointStyle:true,padding:16,font:{size:11}}}, tooltip:{backgroundColor:'#fff',titleColor:'#0f172a',bodyColor:'#334155',borderColor:'#e2e8f0',borderWidth:1,padding:10} }, scales:{ x:{grid:{color:'rgba(0,0,0,0.05)'}}, y:{grid:{color:'rgba(0,0,0,0.05)'},ticks:{callback:v=>v+'%'},min:0,max:80} } }
+    });
+
+    new Chart(document.getElementById('chartRadar'), {
+      type: 'radar',
+      data: {
+        labels: ['Agua Segura','Enf. Crónicas','Desnutrición','Discapacidades','Salud Mental','Envejecimiento'],
+        datasets: [{
+          label: 'Tungurahua 2024',
+          data: [72.3, 40.2, 27.4, 6.1, 16.4, 10.8],
+          backgroundColor: 'rgba(83,30,134,0.15)',
+          borderColor: '#531E86',
+          borderWidth: 2,
+          pointBackgroundColor: '#531E86',
+          pointRadius: 4
+        }]
+      },
+      options: { responsive:true, maintainAspectRatio:false, plugins:{ legend:{position:'bottom',labels:{usePointStyle:true,padding:16,font:{size:11}}}, tooltip:{backgroundColor:'#fff',titleColor:'#0f172a',bodyColor:'#334155',borderColor:'#e2e8f0',borderWidth:1,padding:10} }, scales:{ r:{ grid:{color:'rgba(0,0,0,0.08)'}, ticks:{display:false}, pointLabels:{font:{size:11}} } } }
+    });
+  </script>
+</body>
+</html>
