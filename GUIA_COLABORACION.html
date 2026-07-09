@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Colaboración - Web Page Proposal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        code {
+            background-color: #ecf0f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        pre code {
+            background: none;
+            color: #ecf0f1;
+            padding: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table th, table td {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+            text-align: left;
+        }
+        table th {
+            background-color: #3498db;
+            color: white;
+        }
+        table tr:nth-child(even) {
+            background-color: #ecf0f1;
+        }
+        ul {
+            margin: 15px 0;
+        }
+        ul li {
+            margin: 8px 0;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .info {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #bdc3c7;
+            color: #7f8c8d;
+            font-size: 12px;
+        }
+        .step-number {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>📋 Guía de Colaboración - Web Page Proposal</h1>
+    
+    <div class="info">
+        <strong>Introducción:</strong> Este documento contiene todas las instrucciones para clonar el proyecto, hacer cambios y guardarlos correctamente en GitHub.
+    </div>
+
+    <h2>1. Clonar el Proyecto</h2>
+    <p>Ejecuta este comando en tu terminal para descargar el proyecto:</p>
+    <pre><code>git clone https://github.com/Alejandro155416/Web-Page-Proposal.git</code></pre>
+    <p>Luego entra a la carpeta:</p>
+    <pre><code>cd Web-Page-Proposal</code></pre>
+
+    <h2>2. Crear Tu Rama Personal</h2>
+    <p>Cada integrante debe trabajar en su propia rama. Ejecuta:</p>
+    <pre><code>git checkout -b tu-nombre-rama</code></pre>
+    
+    <h3>Ejemplos de nombres de ramas:</h3>
+    <pre><code>git checkout -b juan-vista
+git checkout -b maria-controlador
+git checkout -b pedro-modelo</code></pre>
+
+    <h2>3. Hacer Cambios en los Archivos</h2>
+    <ul>
+        <li>Abre los archivos con tu editor favorito (VS Code) y haz los cambios que necesites.</li>
+        <li>No modifiques archivos de otros integrantes sin coordinar.</li>
+    </ul>
+
+    <h2>4. Guardar Cambios Localmente</h2>
+    <p>Una vez hayas realizado cambios, guárdalos con Git:</p>
+
+    <h3><span class="step-number">1</span>Ver el estado de cambios</h3>
+    <pre><code>git status</code></pre>
+
+    <h3><span class="step-number">2</span>Agregar todos los cambios</h3>
+    <pre><code>git add .</code></pre>
+
+    <h3><span class="step-number">3</span>Crear un commit con descripción</h3>
+    <pre><code>git commit -m "Descripción del cambio realizado"</code></pre>
+
+    <p><strong>Ejemplo:</strong></p>
+    <pre><code>git commit -m "Agregar navbar en la vista principal"</code></pre>
+
+    <h2>5. Subir Cambios a GitHub</h2>
+    <p>Sube tu rama al repositorio:</p>
+    <pre><code>git push origin tu-nombre-rama</code></pre>
+
+    <h2>6. Crear Pull Request en GitHub</h2>
+    <ol>
+        <li>Ve a: <strong>https://github.com/Alejandro155416/Web-Page-Proposal</strong></li>
+        <li>Verás un botón <strong>"Compare & pull request"</strong> - haz clic en él</li>
+        <li>Agrega una descripción clara de tus cambios</li>
+        <li>Haz clic en <strong>"Create pull request"</strong></li>
+        <li>Espera a que sea revisado y aprobado</li>
+        <li>Una vez aprobado, tu código se fusiona automáticamente</li>
+    </ol>
+
+    <h2>7. Obtener Cambios de Otros Integrantes</h2>
+    <p>Para descargar cambios que otros han subido:</p>
+    <pre><code>git pull origin main</code></pre>
+
+    <h2>8. Comandos Útiles</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Comando</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>git branch</code></td>
+                <td>Ver todas tus ramas locales</td>
+            </tr>
+            <tr>
+                <td><code>git status</code></td>
+                <td>Ver archivos modificados</td>
+            </tr>
+            <tr>
+                <td><code>git log</code></td>
+                <td>Ver historial de commits</td>
+            </tr>
+            <tr>
+                <td><code>git diff</code></td>
+                <td>Ver cambios sin guardar</td>
+            </tr>
+            <tr>
+                <td><code>git checkout main</code></td>
+                <td>Cambiar a rama main</td>
+            </tr>
+            <tr>
+                <td><code>git reset HEAD~1</code></td>
+                <td>Deshacer último commit</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="warning">
+        <h3>⚠️ Notas Importantes</h3>
+        <ul>
+            <li><strong>NO</strong> hagas push directamente a main - siempre usa una rama personal</li>
+            <li>Haz commits frecuentes con mensajes descriptivos</li>
+            <li>Actualiza tu rama con: <code>git pull origin main</code> antes de terminar</li>
+            <li>Si hay conflictos, coordina con el equipo antes de hacer merge</li>
+        </ul>
+    </div>
+
+    <h2>Flujo Completo Resumido</h2>
+    <ol>
+        <li><strong>Clonar:</strong> <code>git clone https://github.com/Alejandro155416/Web-Page-Proposal.git</code></li>
+        <li><strong>Entrar:</strong> <code>cd Web-Page-Proposal</code></li>
+        <li><strong>Nueva rama:</strong> <code>git checkout -b tu-nombre</code></li>
+        <li><strong>Editar</strong> archivos en VS Code</li>
+        <li><strong>Guardar cambios:</strong>
+            <pre><code>git add .
+git commit -m "Tu mensaje"</code></pre>
+        </li>
+        <li><strong>Subir:</strong> <code>git push origin tu-nombre</code></li>
+        <li><strong>Pull Request</strong> en GitHub</li>
+        <li><strong>Esperar aprobación</strong> y fusión</li>
+    </ol>
+
+    <footer>
+        <p><strong>Creado:</strong> 9 de julio de 2026 | <strong>Proyecto:</strong> Web Page Proposal</p>
+        <p>Para guardar este archivo como PDF o Word: Abre el archivo HTML en tu navegador → Imprime → Guarda como PDF</p>
+    </footer>
+</body>
+</html>

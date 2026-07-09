@@ -42,8 +42,24 @@
           <button class="rep-cat" data-cat="agua">Agua Segura</button>
           <button class="rep-cat" data-cat="mental">Salud Mental</button>
           <button class="rep-cat" data-cat="discapacidad">Discapacidades</button>
+          <button class="rep-cat" data-cat="publicaciones">Publicaciones</button>
         </div>
       </div>
+    </section>
+
+    <!-- AGREGAR PUBLICACIÓN (localStorage / opcional) -->
+    <section class="rep-add container" style="margin-top:1rem">
+      <details>
+        <summary class="button">Añadir publicación (local)</summary>
+        <div style="margin-top:0.75rem">
+          <label>Título<br/><input id="pub-title" type="text" style="width:100%" /></label>
+          <label>Fecha (mes año)<br/><input id="pub-date" type="text" placeholder="Enero 2024" style="width:100%" /></label>
+          <label>URL (opcional)<br/><input id="pub-url" type="text" placeholder="https://..." style="width:100%" /></label>
+          <label>Etiquetas (separadas por coma, p.ej. Latacunga,Estudio)<br/><input id="pub-tags" type="text" placeholder="Latacunga" style="width:100%" /></label>
+          <div style="margin-top:0.6rem"><button id="pub-save" class="button">Guardar publicación</button> <button id="pub-clear" class="button" style="background:transparent;border:1px solid #ddd;color:#333">Limpiar</button></div>
+          <p style="margin-top:0.6rem;color:var(--gray-700);font-size:0.95rem">Las publicaciones guardadas aquí se almacenan en tu navegador (localStorage) y solo son visibles localmente.</p>
+        </div>
+      </details>
     </section>
 
     <!-- LISTA DE REPORTES -->
@@ -295,6 +311,79 @@
     });
 
     document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarPDF(); });
+
+    /* --- Publicaciones locales (localStorage) --- */
+    const LOCAL_KEY = 'observatorio_publicaciones_local';
+
+    function renderLocalPublications() {
+      const list = JSON.parse(localStorage.getItem(LOCAL_KEY) || '[]');
+      const container = document.getElementById('rep-lista');
+      // remove previously injected local cards
+      document.querySelectorAll('.rep-card.rep-local').forEach(n => n.remove());
+      list.forEach(pub => {
+        const art = document.createElement('article');
+        art.className = 'rep-card rep-local';
+        art.dataset.cat = 'publicaciones';
+        art.dataset.title = (pub.title || '').toLowerCase();
+        const url = pub.url || '#';
+        art.innerHTML = `
+          <div class="rep-card-icon" style="background:rgba(83,30,134,0.06)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="rep-card-body">
+            <div class="rep-card-meta">
+              <span class="rep-badge" style="background:rgba(83,30,134,0.08);color:#531E86">Publicación</span>
+              <span class="rep-date">${pub.date || ''}</span>
+            </div>
+            <h3>${pub.title || 'Publicación'}</h3>
+            <p>Etiquetas: ${(pub.tags||[]).join(', ')}</p>
+            <div class="rep-card-footer">
+              <div class="rep-actions">
+                ${url && url !== '#' ? `<button class="rep-btn-ver" onclick="abrirPDF('${url}','${(pub.title||'Publicación').replace(/'/g,"\\'")}')">Ver</button>` : ''}
+                <button class="rep-btn-dl" onclick="(function(){ const a=document.createElement('a'); a.href='${url}'; a.target='_blank'; a.rel='noopener'; a.click(); })()">Abrir</button>
+              </div>
+            </div>
+          </div>
+        `;
+        container.insertBefore(art, container.firstChild);
+        // attach click handler for Ver (use event listener to avoid onclick escaping issues)
+        const verBtn = art.querySelector('.rep-btn-ver');
+        if (verBtn) {
+          verBtn.addEventListener('click', function(e){
+            e.preventDefault();
+            try { abrirPDF(url, pub.title || 'Publicación'); } catch(err) { console.error(err); }
+          });
+        }
+      });
+      filtrar();
+    }
+
+    document.getElementById('pub-save').addEventListener('click', ()=>{
+      const title = document.getElementById('pub-title').value.trim();
+      if (!title) { alert('Ingresa un título'); return; }
+      const date = document.getElementById('pub-date').value.trim();
+      const url = document.getElementById('pub-url').value.trim();
+      const tags = document.getElementById('pub-tags').value.split(',').map(s=>s.trim()).filter(Boolean);
+      const list = JSON.parse(localStorage.getItem(LOCAL_KEY) || '[]');
+      list.unshift({ title, date, url, tags });
+      localStorage.setItem(LOCAL_KEY, JSON.stringify(list));
+      // clear form
+      document.getElementById('pub-title').value = '';
+      document.getElementById('pub-date').value = '';
+      document.getElementById('pub-url').value = '';
+      document.getElementById('pub-tags').value = '';
+      renderLocalPublications();
+      alert('Publicación guardada localmente.');
+    });
+
+    document.getElementById('pub-clear').addEventListener('click', ()=>{
+      if (!confirm('Limpiar todas las publicaciones guardadas localmente?')) return;
+      localStorage.removeItem(LOCAL_KEY);
+      renderLocalPublications();
+    });
+
+    // render on load
+    renderLocalPublications();
   </script>
 </body>
 </html>
