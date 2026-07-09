@@ -4,8 +4,8 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --purple: #531E86;
-  --purple-dark: #3a1560;
+  --purple: #1a7a3c;
+  --purple-dark: #125a2a;
   --orange: #F57021;
   --white: #ffffff;
   --gray-50: #f8fafc;
@@ -240,7 +240,7 @@ a { text-decoration: none; }
   width: 100%;
   height: 560px;
   overflow: hidden;
-  background: #1a0a2e;
+  background: #0d3a1a;
   user-select: none;
 }
 
@@ -256,7 +256,7 @@ a { text-decoration: none; }
   height: 100%;
   position: relative;
   flex-shrink: 0;
-  background: linear-gradient(135deg, #3a1560 0%, #531E86 60%, #7a4fa0 100%);
+  background: linear-gradient(135deg, #125a2a 0%, #1a7a3c 60%, #2fa85a 100%);
 }
 
 .carousel-slide:nth-child(2) { background: linear-gradient(135deg, #1a3a5c 0%, #2d6a9f 100%); }
