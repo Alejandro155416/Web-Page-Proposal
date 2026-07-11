@@ -4,9 +4,9 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --purple: #531E86;
-  --purple-dark: #3a1560;
-  --orange: #F57021;
+  --purple: #3d2d7f;
+  --purple-dark: #2b1f5c;
+  --orange: #e8841a;
   --white: #ffffff;
   --gray-50: #f8fafc;
   --gray-100: #f1f5f9;
@@ -50,7 +50,7 @@ a { text-decoration: none; }
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #1a3a6b;
+  background: #3d2d7f;
   box-shadow: 0 2px 20px rgba(0,0,0,0.25);
 }
 
