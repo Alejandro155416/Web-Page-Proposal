@@ -5,121 +5,648 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contacto - Observatorio de Medicina UTI</title>
   <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    /* ══════════════════════════════════════
+       HERO CONTACTO
+    ══════════════════════════════════════ */
+    .contacto-hero {
+      background: linear-gradient(135deg, #531E86 0%, #e91e8c 100%);
+      padding: 4rem 0 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .contacto-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .contacto-hero-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .contacto-hero-text h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .contacto-hero-text p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.05rem;
+      max-width: 520px;
+      line-height: 1.7;
+    }
+    .contacto-hero-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      padding: 0.55rem 1.25rem;
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      width: fit-content;
+    }
+    .contacto-hero-badge span { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; display: inline-block; }
+    /* ══════════════════════════════════════
+       QUICK STATS BAR
+    ══════════════════════════════════════ */
+    .contacto-stats-bar {
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      box-shadow: 0 2px 12px rgba(83,30,134,0.07);
+    }
+    .contacto-stats-inner {
+      display: flex;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+    .contacto-stat {
+      flex: 1;
+      min-width: 160px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.1rem 1.5rem;
+      border-right: 1px solid #e2e8f0;
+    }
+    .contacto-stat:last-child { border-right: none; }
+    .contacto-stat-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(83,30,134,0.08);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .contacto-stat strong { display: block; font-size: 1rem; font-weight: 700; color: #0f172a; }
+    .contacto-stat span { font-size: 0.78rem; color: #64748b; }
+
+    /* ══════════════════════════════════════
+       LAYOUT PRINCIPAL
+    ══════════════════════════════════════ */
+    .contacto-body { padding: 3.5rem 0 5rem; background: #f8fafc; }
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (max-width: 900px) { .contacto-grid { grid-template-columns: 1fr; } }
+
+    /* ══════════════════════════════════════
+       COLUMNA IZQUIERDA
+    ══════════════════════════════════════ */
+    .contacto-left { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .contacto-info-block {
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 20px rgba(83,30,134,0.06);
+      overflow: hidden;
+    }
+    .contacto-info-block-header {
+      background: linear-gradient(135deg, #531E86, #7c3aed);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .contacto-info-block-header h3 {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    .contacto-info-items { padding: 0.5rem 0; }
+    .contacto-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.1rem 1.5rem;
+      border-bottom: 1px solid #f1f5f9;
+      transition: background 0.15s;
+    }
+    .contacto-info-item:last-child { border-bottom: none; }
+    .contacto-info-item:hover { background: #faf5ff; }
+    .c-icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      background: rgba(83,30,134,0.08);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      transition: background 0.15s;
+    }
+    .contacto-info-item:hover .c-icon { background: rgba(83,30,134,0.15); }
+    .c-info strong { display: block; font-size: 0.88rem; font-weight: 700; color: #0f172a; margin-bottom: 0.2rem; }
+    .c-info p { font-size: 0.83rem; color: #64748b; margin: 0; line-height: 1.5; }
+    .c-info a { color: #531E86; font-weight: 600; text-decoration: none; }
+    .c-info a:hover { text-decoration: underline; }
+
+    /* Horario card */
+    .horario-card {
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 20px rgba(83,30,134,0.06);
+      overflow: hidden;
+    }
+    .horario-card-header {
+      background: linear-gradient(135deg, #e91e8c, #f97316);
+      padding: 1.1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .horario-card-header h3 { color: #fff; font-size: 0.95rem; font-weight: 700; margin: 0; }
+    .horario-rows { padding: 0.75rem 1.5rem 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .horario-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 0.85rem;
+    }
+    .horario-row:last-child { border-bottom: none; }
+    .horario-row .dia { color: #334155; font-weight: 600; }
+    .horario-row .hora { color: #531E86; font-weight: 700; background: rgba(83,30,134,0.07); padding: 0.2rem 0.65rem; border-radius: 6px; }
+    .horario-row .cerrado { color: #94a3b8; font-weight: 500; }
+
+    /* Redes */
+    .redes-card {
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 20px rgba(83,30,134,0.06);
+      padding: 1.25rem 1.5rem;
+    }
+    .redes-card h4 { font-size: 0.88rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem; }
+    .redes-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .red-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .red-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .red-btn.tw { background: #1da1f2; color: #fff; }
+    .red-btn.fb { background: #1877f2; color: #fff; }
+    .red-btn.li { background: #0a66c2; color: #fff; }
+
+    /* ══════════════════════════════════════
+       FORMULARIO (columna derecha)
+    ══════════════════════════════════════ */
+    .contacto-form-wrap {
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 20px rgba(83,30,134,0.06);
+      overflow: hidden;
+    }
+    .form-wrap-header {
+      background: linear-gradient(135deg, #531E86 0%, #e91e8c 100%);
+      padding: 1.75rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .form-wrap-header::after {
+      content: '✉';
+      position: absolute;
+      right: 1.5rem;
+      bottom: -0.5rem;
+      font-size: 5rem;
+      opacity: 0.1;
+      line-height: 1;
+    }
+    .form-wrap-header h3 { color: #fff; font-size: 1.3rem; font-weight: 800; margin: 0 0 0.3rem; }
+    .form-wrap-header p { color: rgba(255,255,255,0.8); font-size: 0.88rem; margin: 0; }
+
+    .form-body { padding: 2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+
+    .fg { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.25rem; }
+    .fg label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #334155;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .fg input, .fg textarea, .fg select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      color: #0f172a;
+      background: #fafafa;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      font-family: inherit;
+      outline: none;
+    }
+    .fg input:focus, .fg textarea:focus, .fg select:focus {
+      border-color: #531E86;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(83,30,134,0.1);
+    }
+    .fg input::placeholder, .fg textarea::placeholder { color: #94a3b8; }
+    .fg textarea { resize: vertical; min-height: 130px; }
+
+    .tipo-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tipo-chip {
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      border: 1.5px solid #e2e8f0;
+      background: #fafafa;
+      color: #64748b;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .tipo-chip:hover, .tipo-chip.sel {
+      background: #531E86;
+      border-color: #531E86;
+      color: #fff;
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      padding: 0.95rem;
+      background: linear-gradient(135deg, #531E86, #e91e8c);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: opacity 0.2s, transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 20px rgba(83,30,134,0.3);
+      margin-top: 0.5rem;
+    }
+    .form-submit-btn:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(83,30,134,0.4); }
+    .form-submit-btn:active { transform: translateY(0); }
+
+    .form-privacy {
+      margin-top: 0.85rem;
+      font-size: 0.78rem;
+      color: #94a3b8;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    .form-success {
+      display: none;
+      margin-top: 1rem;
+      padding: 1rem 1.25rem;
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      border-radius: 10px;
+      color: #166534;
+      font-size: 0.9rem;
+      font-weight: 600;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .form-success.show { display: flex; }
+
+    /* ══════════════════════════════════════
+       MAPA
+    ══════════════════════════════════════ */
+    .contacto-mapa-section {
+      margin-top: 2rem;
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 20px rgba(83,30,134,0.06);
+      overflow: hidden;
+    }
+    .mapa-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1.25rem 1.75rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .mapa-section-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .mapa-icon-wrap {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(83,30,134,0.08);
+      display: grid;
+      place-items: center;
+    }
+    .mapa-section-header h4 { font-size: 1rem; font-weight: 700; color: #0f172a; margin: 0 0 0.15rem; }
+    .mapa-section-header p { font-size: 0.82rem; color: #64748b; margin: 0; }
+    .mapa-ext-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.1rem;
+      background: rgba(83,30,134,0.06);
+      color: #531E86;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .mapa-ext-link:hover { background: rgba(83,30,134,0.12); }
+    .contacto-mapa-frame {
+      height: 340px;
+      position: relative;
+    }
+    .contacto-mapa-frame iframe {
+      width: 100%; height: 100%; border: 0; display: block;
+    }
+  </style>
 </head>
 <body>
   <div id="site-header"></div>
+  <main>
 
-  <main class="page-shell">
-    <div class="container contacto-page">
-
-      <!-- Encabezado -->
-      <div class="contacto-encabezado">
-        <h1>Contacto</h1>
-        <p>Estamos disponibles para atender tus consultas, colaboraciones e información sobre el Observatorio de Salud Pública de la UTI.</p>
-      </div>
-
-      <!-- Grid principal: info + formulario -->
-      <div class="contacto-main-grid">
-
-        <!-- Info -->
-        <div class="contacto-info-col">
-          <div class="contacto-info-card">
-            <div class="ab-contacto-item">
-              <div class="ab-contacto-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              <div>
-                <strong>Dirección</strong>
-                <p>Universidad Tecnológica Indoamérica<br>Ambato, Ecuador</p>
-              </div>
-            </div>
-            <div class="ab-contacto-item">
-              <div class="ab-contacto-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </div>
-              <div>
-                <strong>Correo electrónico</strong>
-                <p>observatorio@uti.edu.ec</p>
-              </div>
-            </div>
-            <div class="ab-contacto-item">
-              <div class="ab-contacto-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.79-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              </div>
-              <div>
-                <strong>Teléfono</strong>
-                <p>(03) 123-4567</p>
-              </div>
-            </div>
-            <div class="ab-contacto-item">
-              <div class="ab-contacto-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              </div>
-              <div>
-                <strong>Horario de atención</strong>
-                <p>Lunes a Viernes<br>08:00 – 17:00</p>
-              </div>
-            </div>
+    <!-- HERO -->
+    <section class="contacto-hero">
+      <div class="container contacto-hero-inner">
+        <div class="contacto-hero-text">
+          <div class="contacto-hero-badge">
+            <span></span> Disponibles para atenderte
+          </div>
+          <h1>Contáctanos</h1>
+          <p>Estamos disponibles para atender tus consultas, colaboraciones e información sobre el Observatorio de Salud Pública de la UTI.</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-self:flex-start;padding-top:0.5rem;">
+          <div style="background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:1rem 1.25rem;text-align:center;min-width:120px;">
+            <div style="font-size:1.6rem;font-weight:800;color:#fff;">24h</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:0.05em;">Tiempo de respuesta</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:1rem 1.25rem;text-align:center;min-width:120px;">
+            <div style="font-size:1.6rem;font-weight:800;color:#fff;">5</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:0.05em;">Días a la semana</div>
           </div>
         </div>
-
-        <!-- Formulario -->
-        <form class="ab-form contacto-form-card" onsubmit="enviarForm(event)">
-          <h3>Envíanos un mensaje</h3>
-          <div class="form-group">
-            <label for="nombre">Nombre completo</label>
-            <input type="text" id="nombre" placeholder="Tu nombre" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Correo electrónico</label>
-            <input type="email" id="email" placeholder="tu@correo.com" required />
-          </div>
-          <div class="form-group">
-            <label for="asunto">Asunto</label>
-            <input type="text" id="asunto" placeholder="¿En qué podemos ayudarte?" required />
-          </div>
-          <div class="form-group">
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
-          </div>
-          <button type="submit" class="form-submit">Enviar mensaje</button>
-          <p class="form-ok" id="form-ok" style="display:none">✅ Mensaje enviado. Te contactaremos pronto.</p>
-        </form>
-
       </div>
+    </section>
 
-      <!-- Mapa -->
-      <div class="contacto-mapa">
-        <div class="contacto-mapa-header">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>Universidad Tecnológica Indoamérica · Ambato, Ecuador</span>
-          <a href="https://maps.google.com/?q=P9J6%2B8F+Ambato" target="_blank" rel="noopener" class="mapa-link">Ver en Google Maps →</a>
+    <!-- STATS BAR -->
+    <div class="contacto-stats-bar">
+      <div class="container contacto-stats-inner">
+        <div class="contacto-stat">
+          <div class="contacto-stat-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div><strong>Ambato, Ecuador</strong><span>Nuestra ubicación</span></div>
         </div>
-        <div class="contacto-mapa-frame">
-          <iframe
-            title="Ubicación Universidad Indoamérica Ambato"
-            src="https://maps.google.com/maps?q=Universidad+Indoamerica+Ambato+Ecuador&t=k&z=17&ie=UTF8&iwloc=&output=embed"
-            width="100%"
-            height="100%"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+        <div class="contacto-stat">
+          <div class="contacto-stat-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div><strong>observatorio@uti.edu.ec</strong><span>Correo electrónico</span></div>
+        </div>
+        <div class="contacto-stat">
+          <div class="contacto-stat-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.79-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div><strong>(03) 123-4567</strong><span>Teléfono directo</span></div>
+        </div>
+        <div class="contacto-stat">
+          <div class="contacto-stat-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div><strong>Lun – Vie · 08:00–17:00</strong><span>Horario de atención</span></div>
         </div>
       </div>
-
     </div>
-  </main>
 
+    <!-- BODY GRID -->
+    <section class="contacto-body">
+      <div class="container">
+        <div class="contacto-grid">
+
+          <!-- COLUMNA IZQUIERDA -->
+          <div class="contacto-left">
+
+            <!-- Info de contacto -->
+            <div class="contacto-info-block">
+              <div class="contacto-info-block-header">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.79-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <h3>Información de contacto</h3>
+              </div>
+              <div class="contacto-info-items">
+                <div class="contacto-info-item">
+                  <div class="c-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </div>
+                  <div class="c-info">
+                    <strong>Dirección</strong>
+                    <p>Universidad Tecnológica Indoamérica<br>Ambato, Ecuador</p>
+                  </div>
+                </div>
+                <div class="contacto-info-item">
+                  <div class="c-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  </div>
+                  <div class="c-info">
+                    <strong>Correo electrónico</strong>
+                    <p><a href="mailto:observatorio@uti.edu.ec">observatorio@uti.edu.ec</a></p>
+                  </div>
+                </div>
+                <div class="contacto-info-item">
+                  <div class="c-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.79-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </div>
+                  <div class="c-info">
+                    <strong>Teléfono</strong>
+                    <p><a href="tel:+593312345678">(03) 123-4567</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Horario -->
+            <div class="horario-card">
+              <div class="horario-card-header">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <h3>Horario de atención</h3>
+              </div>
+              <div class="horario-rows">
+                <div class="horario-row"><span class="dia">Lunes – Viernes</span><span class="hora">08:00 – 17:00</span></div>
+                <div class="horario-row"><span class="dia">Sábado</span><span class="hora">09:00 – 13:00</span></div>
+                <div class="horario-row"><span class="dia">Domingo</span><span class="cerrado">Cerrado</span></div>
+              </div>
+            </div>
+
+            <!-- Redes sociales -->
+            <div class="redes-card">
+              <h4>Síguenos en redes</h4>
+              <div class="redes-btns">
+                <a href="#" class="red-btn tw">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                  Twitter
+                </a>
+                <a href="#" class="red-btn fb">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                  Facebook
+                </a>
+                <a href="#" class="red-btn li">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+
+          </div><!-- fin columna izquierda -->
+
+          <!-- COLUMNA DERECHA: FORMULARIO -->
+          <div class="contacto-form-wrap">
+            <div class="form-wrap-header">
+              <h3>Envíanos un mensaje</h3>
+              <p>Responderemos en menos de 24 horas hábiles</p>
+            </div>
+            <div class="form-body">
+              <form id="contacto-form" onsubmit="enviarForm(event)">
+
+                <div class="form-row">
+                  <div class="fg">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" placeholder="Tu nombre" required />
+                  </div>
+                  <div class="fg">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" placeholder="Tu apellido" />
+                  </div>
+                </div>
+
+                <div class="fg">
+                  <label for="email">Correo electrónico</label>
+                  <input type="email" id="email" placeholder="tu@correo.com" required />
+                </div>
+
+                <div class="fg">
+                  <label for="institucion">Institución / Organización</label>
+                  <input type="text" id="institucion" placeholder="Nombre de tu institución (opcional)" />
+                </div>
+
+                <div class="fg">
+                  <label>Tipo de consulta</label>
+                  <div class="tipo-chips" id="tipo-chips">
+                    <button type="button" class="tipo-chip sel" onclick="selChip(this)">Información general</button>
+                    <button type="button" class="tipo-chip" onclick="selChip(this)">Colaboración</button>
+                    <button type="button" class="tipo-chip" onclick="selChip(this)">Datos y reportes</button>
+                    <button type="button" class="tipo-chip" onclick="selChip(this)">Investigación</button>
+                    <button type="button" class="tipo-chip" onclick="selChip(this)">Otro</button>
+                  </div>
+                </div>
+
+                <div class="fg">
+                  <label for="asunto">Asunto</label>
+                  <input type="text" id="asunto" placeholder="¿En qué podemos ayudarte?" required />
+                </div>
+
+                <div class="fg">
+                  <label for="mensaje">Mensaje</label>
+                  <textarea id="mensaje" placeholder="Escribe tu mensaje con el mayor detalle posible..." required></textarea>
+                </div>
+
+                <button type="submit" class="form-submit-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                  Enviar mensaje
+                </button>
+
+                <p class="form-privacy">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  Tu información es tratada con total confidencialidad.
+                </p>
+
+                <div class="form-success" id="form-ok">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  Mensaje enviado correctamente. Te contactaremos pronto.
+                </div>
+
+              </form>
+            </div>
+          </div><!-- fin formulario -->
+
+        </div><!-- fin grid -->
+
+        <!-- MAPA -->
+        <div class="contacto-mapa-section">
+          <div class="mapa-section-header">
+            <div class="mapa-section-header-left">
+              <div class="mapa-icon-wrap">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <h4>Encuéntranos en el mapa</h4>
+                <p>Universidad Tecnológica Indoamérica · Ambato, Ecuador</p>
+              </div>
+            </div>
+            <a href="https://maps.google.com/?q=Universidad+Indoamerica+Ambato+Ecuador" target="_blank" rel="noopener" class="mapa-ext-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Ver en Google Maps
+            </a>
+          </div>
+          <div class="contacto-mapa-frame">
+            <iframe
+              title="Ubicación Universidad Indoamérica Ambato"
+              src="https://maps.google.com/maps?q=Universidad+Indoamerica+Ambato+Ecuador&t=k&z=17&ie=UTF8&iwloc=&output=embed"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
   <div id="site-footer"></div>
   <script src="../assets/js/main.js"></script>
   <script>
+    function selChip(el) {
+      document.querySelectorAll('.tipo-chip').forEach(c => c.classList.remove('sel'));
+      el.classList.add('sel');
+    }
     function enviarForm(e) {
       e.preventDefault();
-      document.getElementById('form-ok').style.display = 'block';
+      const ok = document.getElementById('form-ok');
+      ok.classList.add('show');
       e.target.reset();
-      setTimeout(() => { document.getElementById('form-ok').style.display = 'none'; }, 5000);
+      document.querySelectorAll('.tipo-chip').forEach((c, i) => c.classList.toggle('sel', i === 0));
+      setTimeout(() => ok.classList.remove('show'), 6000);
     }
   </script>
 </body>
