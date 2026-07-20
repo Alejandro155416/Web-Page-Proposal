@@ -10,8 +10,8 @@
        HERO CONTACTO
     ══════════════════════════════════════ */
     .contacto-hero {
-      background: linear-gradient(135deg, #531E86 0%, #e91e8c 100%);
-      padding: 4rem 0 3rem;
+      background: linear-gradient(135deg, #3a1560 0%, #531E86 40%, #e91e8c 100%);
+      padding: 4.5rem 0 3.5rem;
       position: relative;
       overflow: hidden;
     }
@@ -20,6 +20,15 @@
       position: absolute;
       inset: 0;
       background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .contacto-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; right: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(245,112,33,0.12);
+      pointer-events: none;
     }
     .contacto-hero-inner {
       position: relative;
@@ -31,41 +40,44 @@
       flex-wrap: wrap;
     }
     .contacto-hero-text h1 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 900;
       color: #fff;
       margin-bottom: 0.75rem;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
     }
+    .contacto-hero-text h1 em { font-style: normal; color: #fbbf24; }
     .contacto-hero-text p {
       color: rgba(255,255,255,0.85);
       font-size: 1.05rem;
       max-width: 520px;
-      line-height: 1.7;
+      line-height: 1.75;
     }
     .contacto-hero-badge {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 0.6rem;
       background: rgba(255,255,255,0.15);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.25);
+      border: 1px solid rgba(255,255,255,0.3);
       border-radius: 999px;
-      padding: 0.55rem 1.25rem;
+      padding: 0.5rem 1.1rem;
       color: #fff;
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: 0.8rem;
+      font-weight: 700;
       margin-bottom: 1.25rem;
-      width: fit-content;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
     .contacto-hero-badge span { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; display: inline-block; }
     /* ══════════════════════════════════════
        QUICK STATS BAR
     ══════════════════════════════════════ */
     .contacto-stats-bar {
-      background: #fff;
-      border-bottom: 1px solid #e2e8f0;
-      box-shadow: 0 2px 12px rgba(83,30,134,0.07);
+      background: #531E86;
+      border-bottom: none;
+      box-shadow: 0 4px 20px rgba(83,30,134,0.3);
     }
     .contacto-stats-inner {
       display: flex;
@@ -79,19 +91,19 @@
       align-items: center;
       gap: 0.75rem;
       padding: 1.1rem 1.5rem;
-      border-right: 1px solid #e2e8f0;
+      border-right: 1px solid rgba(255,255,255,0.15);
     }
     .contacto-stat:last-child { border-right: none; }
     .contacto-stat-icon {
       width: 40px; height: 40px;
       border-radius: 10px;
-      background: rgba(83,30,134,0.08);
+      background: rgba(255,255,255,0.15);
       display: grid;
       place-items: center;
       flex-shrink: 0;
     }
-    .contacto-stat strong { display: block; font-size: 1rem; font-weight: 700; color: #0f172a; }
-    .contacto-stat span { font-size: 0.78rem; color: #64748b; }
+    .contacto-stat strong { display: block; font-size: 0.95rem; font-weight: 700; color: #fff; }
+    .contacto-stat span { font-size: 0.75rem; color: rgba(255,255,255,0.7); }
 
     /* ══════════════════════════════════════
        LAYOUT PRINCIPAL
@@ -118,7 +130,7 @@
       overflow: hidden;
     }
     .contacto-info-block-header {
-      background: linear-gradient(135deg, #531E86, #7c3aed);
+      background: linear-gradient(135deg, #531E86, #e91e8c);
       padding: 1.25rem 1.5rem;
       display: flex;
       align-items: center;
@@ -140,7 +152,7 @@
       transition: background 0.15s;
     }
     .contacto-info-item:last-child { border-bottom: none; }
-    .contacto-info-item:hover { background: #faf5ff; }
+    .contacto-info-item:hover { background: #fdf4ff; }
     .c-icon {
       width: 42px; height: 42px;
       border-radius: 10px;
@@ -150,11 +162,11 @@
       flex-shrink: 0;
       transition: background 0.15s;
     }
-    .contacto-info-item:hover .c-icon { background: rgba(83,30,134,0.15); }
+    .contacto-info-item:hover .c-icon { background: rgba(233,30,140,0.12); }
     .c-info strong { display: block; font-size: 0.88rem; font-weight: 700; color: #0f172a; margin-bottom: 0.2rem; }
     .c-info p { font-size: 0.83rem; color: #64748b; margin: 0; line-height: 1.5; }
-    .c-info a { color: #531E86; font-weight: 600; text-decoration: none; }
-    .c-info a:hover { text-decoration: underline; }
+    .c-info a { color: #e91e8c; font-weight: 600; text-decoration: none; }
+    .c-info a:hover { text-decoration: underline; color: #531E86; }
 
     /* Horario card */
     .horario-card {
@@ -183,7 +195,7 @@
     }
     .horario-row:last-child { border-bottom: none; }
     .horario-row .dia { color: #334155; font-weight: 600; }
-    .horario-row .hora { color: #531E86; font-weight: 700; background: rgba(83,30,134,0.07); padding: 0.2rem 0.65rem; border-radius: 6px; }
+    .horario-row .hora { color: #e91e8c; font-weight: 700; background: rgba(233,30,140,0.07); padding: 0.2rem 0.65rem; border-radius: 6px; }
     .horario-row .cerrado { color: #94a3b8; font-weight: 500; }
 
     /* Redes */
@@ -305,10 +317,10 @@
       justify-content: center;
       gap: 0.6rem;
       transition: opacity 0.2s, transform 0.15s, box-shadow 0.15s;
-      box-shadow: 0 4px 20px rgba(83,30,134,0.3);
+      box-shadow: 0 4px 20px rgba(83,30,134,0.35);
       margin-top: 0.5rem;
     }
-    .form-submit-btn:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(83,30,134,0.4); }
+    .form-submit-btn:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 6px 28px rgba(233,30,140,0.4); }
     .form-submit-btn:active { transform: translateY(0); }
 
     .form-privacy {
@@ -376,15 +388,16 @@
       align-items: center;
       gap: 0.4rem;
       padding: 0.55rem 1.1rem;
-      background: rgba(83,30,134,0.06);
-      color: #531E86;
+      background: rgba(245,112,33,0.1);
+      color: #F57021;
       font-size: 0.82rem;
       font-weight: 700;
       border-radius: 8px;
       text-decoration: none;
+      border: 1px solid rgba(245,112,33,0.2);
       transition: background 0.15s;
     }
-    .mapa-ext-link:hover { background: rgba(83,30,134,0.12); }
+    .mapa-ext-link:hover { background: rgba(245,112,33,0.18); }
     .contacto-mapa-frame {
       height: 340px;
       position: relative;
