@@ -3,283 +3,646 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Información - Observatorio de Medicina UTI</title>
+  <title>Acerca del Observatorio - UTI</title>
   <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    /* ══ HERO ══ */
+    .about-hero {
+      background: linear-gradient(135deg, #1a0a2e 0%, #531E86 55%, #e91e8c 100%);
+      padding: 5rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(233,30,140,0.25) 0%, transparent 65%);
+    }
+    .about-hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media(max-width:800px){ .about-hero-grid{ grid-template-columns:1fr; } .about-hero-nums{ display:none!important; } }
+    .about-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 999px;
+      padding: 0.4rem 1rem;
+      color: rgba(255,255,255,0.9);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .about-hero-eyebrow span { width:7px;height:7px;border-radius:50%;background:#4ade80; }
+    .about-hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .about-hero h1 em { font-style: normal; color: #f9a8d4; }
+    .about-hero-desc {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      max-width: 540px;
+      margin-bottom: 2rem;
+    }
+    .about-hero-actions { display:flex; gap:0.85rem; flex-wrap:wrap; }
+    .btn-hero-primary {
+      display:inline-flex; align-items:center; gap:0.5rem;
+      background:#fff; color:#531E86;
+      padding:0.75rem 1.5rem; border-radius:10px;
+      font-weight:800; font-size:0.9rem;
+      text-decoration:none; transition:all .15s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .btn-hero-primary:hover{ transform:translateY(-2px); box-shadow:0 6px 24px rgba(0,0,0,0.25); }
+    .btn-hero-secondary {
+      display:inline-flex; align-items:center; gap:0.5rem;
+      background:rgba(255,255,255,0.12); color:#fff;
+      border:1.5px solid rgba(255,255,255,0.3);
+      padding:0.75rem 1.5rem; border-radius:10px;
+      font-weight:700; font-size:0.9rem;
+      text-decoration:none; transition:all .15s;
+    }
+    .btn-hero-secondary:hover{ background:rgba(255,255,255,0.2); }
+    .about-hero-nums {
+      display:flex; flex-direction:column; gap:1rem;
+    }
+    .hero-num-card {
+      background:rgba(255,255,255,0.1);
+      backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,0.18);
+      border-radius:14px;
+      padding:1.1rem 1.4rem;
+      text-align:center; min-width:130px;
+    }
+    .hero-num-card strong { display:block; font-size:1.9rem; font-weight:900; color:#fff; line-height:1; }
+    .hero-num-card span { font-size:0.72rem; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:0.06em; margin-top:0.3rem; display:block; }
+
+    /* ══ BREADCRUMB ══ */
+    .about-breadcrumb {
+      background:#fff; border-bottom:1px solid #e2e8f0;
+      padding:0.75rem 0;
+    }
+    .about-breadcrumb nav { display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:#64748b; }
+    .about-breadcrumb a { color:#531E86; font-weight:600; text-decoration:none; }
+    .about-breadcrumb a:hover { text-decoration:underline; }
+    .about-breadcrumb .sep { color:#cbd5e1; }
+
+    /* ══ BODY ══ */
+    .about-body { background:#f8fafc; padding:4rem 0 5rem; }
+
+    /* ══ MISIÓN / VISIÓN ══ */
+    .mv-grid {
+      display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:4rem;
+    }
+    @media(max-width:700px){ .mv-grid{ grid-template-columns:1fr; } }
+    .mv-card {
+      border-radius:16px; padding:2rem;
+      border:1px solid #e2e8f0;
+      box-shadow:0 4px 20px rgba(83,30,134,0.06);
+      position:relative; overflow:hidden;
+    }
+    .mv-card.mision { background:#fff; }
+    .mv-card.vision { background:linear-gradient(135deg,#531E86,#7c3aed); }
+    .mv-card.vision .mv-title,.mv-card.vision .mv-text { color:#fff; }
+    .mv-card.vision .mv-text { color:rgba(255,255,255,0.85); }
+    .mv-card::before {
+      content:'';
+      position:absolute; top:-30px; right:-30px;
+      width:120px; height:120px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.05);
+    }
+    .mv-icon {
+      width:48px;height:48px;border-radius:12px;
+      display:grid;place-items:center;margin-bottom:1.25rem;
+    }
+    .mv-card.mision .mv-icon { background:rgba(83,30,134,0.08); }
+    .mv-card.vision .mv-icon { background:rgba(255,255,255,0.15); }
+    .mv-label {
+      font-size:0.72rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase;
+      margin-bottom:0.4rem;
+    }
+    .mv-card.mision .mv-label { color:#e91e8c; }
+    .mv-card.vision .mv-label { color:rgba(255,255,255,0.7); }
+    .mv-title { font-size:1.4rem; font-weight:800; color:#0f172a; margin-bottom:0.85rem; }
+    .mv-text { color:#64748b; line-height:1.8; font-size:0.95rem; margin:0; }
+
+    /* ══ SECTION TITLE ══ */
+    .ab2-section { margin-bottom:4rem; }
+    .ab2-section-head {
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:1rem; margin-bottom:2rem; flex-wrap:wrap;
+    }
+    .ab2-section-head-left {}
+    .ab2-section-label {
+      font-size:0.72rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase;
+      color:#e91e8c; margin-bottom:0.3rem;
+    }
+    .ab2-section-title {
+      font-size:1.75rem; font-weight:900; color:#0f172a; letter-spacing:-0.02em;
+    }
+    .ab2-section-line {
+      width:48px;height:4px;border-radius:2px;
+      background:linear-gradient(90deg,#531E86,#e91e8c);
+      margin-top:0.6rem;
+    }
+
+    /* ══ VALORES ══ */
+    .valores-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1.25rem;
+    }
+    .valor-card {
+      background:#fff; border-radius:14px;
+      border:1px solid #e2e8f0;
+      box-shadow:0 2px 12px rgba(83,30,134,0.05);
+      padding:1.75rem;
+      transition:transform .2s, box-shadow .2s, border-color .2s;
+    }
+    .valor-card:hover { transform:translateY(-4px); box-shadow:0 8px 30px rgba(83,30,134,0.12); border-color:rgba(83,30,134,0.2); }
+    .valor-icon {
+      width:52px;height:52px;border-radius:14px;
+      display:grid;place-items:center;margin-bottom:1.1rem;
+    }
+    .valor-card h4 { font-size:1rem; font-weight:800; color:#0f172a; margin-bottom:0.5rem; }
+    .valor-card p { font-size:0.85rem; color:#64748b; line-height:1.7; margin:0; }
+
+    /* ══ EQUIPO ══ */
+    .equipo-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1.25rem;
+    }
+    .equipo-card {
+      background:#fff; border-radius:14px;
+      border:1px solid #e2e8f0;
+      box-shadow:0 2px 12px rgba(83,30,134,0.05);
+      padding:1.5rem; text-align:center;
+      transition:transform .2s, box-shadow .2s;
+    }
+    .equipo-card:hover { transform:translateY(-4px); box-shadow:0 8px 30px rgba(83,30,134,0.12); }
+    .equipo-avatar {
+      width:64px;height:64px;border-radius:50%;
+      background:linear-gradient(135deg,#531E86,#e91e8c);
+      display:grid;place-items:center;
+      margin:0 auto 1rem;
+    }
+    .equipo-card strong { display:block; font-size:0.95rem; font-weight:800; color:#0f172a; margin-bottom:0.35rem; }
+    .equipo-card span { font-size:0.8rem; color:#64748b; line-height:1.5; }
+    .equipo-badge {
+      display:inline-block; margin-top:0.75rem;
+      padding:0.25rem 0.7rem; border-radius:999px;
+      background:rgba(83,30,134,0.08); color:#531E86;
+      font-size:0.72rem; font-weight:700;
+    }
+
+    /* ══ IMPACTO ══ */
+    .impacto-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:1.25rem;
+    }
+    .impacto-card {
+      background:#fff; border-radius:14px;
+      border:1px solid #e2e8f0;
+      box-shadow:0 2px 12px rgba(83,30,134,0.05);
+      padding:1.75rem 1.25rem; text-align:center;
+      transition:transform .2s, box-shadow .2s;
+    }
+    .impacto-card:hover { transform:translateY(-4px); box-shadow:0 8px 30px rgba(83,30,134,0.12); }
+    .impacto-icon {
+      width:52px;height:52px;border-radius:14px;
+      display:grid;place-items:center;margin:0 auto 1rem;
+    }
+    .impacto-card strong {
+      display:block; font-size:2.2rem; font-weight:900;
+      letter-spacing:-0.03em; margin-bottom:0.35rem;
+    }
+    .impacto-card span { font-size:0.82rem; color:#64748b; font-weight:500; }
+
+    /* ══ TIMELINE ══ */
+    .timeline-wrap {
+      position:relative; padding-left:2.5rem;
+    }
+    .timeline-wrap::before {
+      content:'';
+      position:absolute; left:0; top:0; bottom:0;
+      width:2px;
+      background:linear-gradient(to bottom, #531E86, #e91e8c, #e2e8f0);
+      border-radius:2px;
+    }
+    .tl-item {
+      position:relative; padding-bottom:2.5rem;
+    }
+    .tl-item:last-child { padding-bottom:0; }
+    .tl-dot {
+      position:absolute; left:-2.5rem;
+      width:14px;height:14px;border-radius:50%;
+      background:#e2e8f0; border:3px solid #fff;
+      box-shadow:0 0 0 2px #e2e8f0;
+      top:0.2rem;
+      transform:translateX(-6px);
+    }
+    .tl-dot.active {
+      background:linear-gradient(135deg,#531E86,#e91e8c);
+      box-shadow:0 0 0 3px rgba(83,30,134,0.2);
+    }
+    .tl-year {
+      display:inline-block; font-size:0.75rem; font-weight:800;
+      color:#531E86; background:rgba(83,30,134,0.08);
+      padding:0.2rem 0.65rem; border-radius:6px;
+      letter-spacing:0.04em; margin-bottom:0.5rem;
+    }
+    .tl-item h4 { font-size:1rem; font-weight:800; color:#0f172a; margin-bottom:0.4rem; }
+    .tl-item p { font-size:0.875rem; color:#64748b; line-height:1.75; margin:0; max-width:600px; }
+
+    /* ══ ALIANZAS ══ */
+    .alianzas-group { margin-bottom:2rem; }
+    .alianzas-group-label {
+      font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:0.1em;
+      color:#94a3b8; margin-bottom:1rem; padding-bottom:0.5rem;
+      border-bottom:1px solid #e2e8f0;
+    }
+    .alianzas-logos {
+      display:flex; flex-wrap:wrap; gap:0.85rem;
+    }
+    .alianza-logo {
+      display:flex; align-items:center; gap:0.65rem;
+      background:#fff; border:1.5px solid #e2e8f0; border-radius:12px;
+      padding:0.75rem 1.25rem;
+      text-decoration:none; color:#334155;
+      font-size:0.85rem; font-weight:700;
+      transition:all .2s;
+      box-shadow:0 2px 8px rgba(0,0,0,0.04);
+    }
+    .alianza-logo:hover { border-color:#531E86; color:#531E86; transform:translateY(-2px); box-shadow:0 6px 20px rgba(83,30,134,0.12); }
+    .alianza-logo .al-icon {
+      width:36px;height:36px;border-radius:8px;
+      display:grid;place-items:center;flex-shrink:0;
+    }
+
+    /* ══ CTA FINAL ══ */
+    .about-cta {
+      background:linear-gradient(135deg,#531E86,#e91e8c);
+      border-radius:20px; padding:3rem 2.5rem;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:2rem; flex-wrap:wrap; margin-top:1rem;
+    }
+    .about-cta h3 { font-size:1.5rem; font-weight:900; color:#fff; margin-bottom:0.5rem; }
+    .about-cta p { color:rgba(255,255,255,0.8); font-size:0.95rem; margin:0; }
+    .about-cta-btns { display:flex; gap:0.75rem; flex-wrap:wrap; }
+    .cta-btn-w { background:#fff; color:#531E86; padding:0.75rem 1.5rem; border-radius:10px; font-weight:800; font-size:0.9rem; text-decoration:none; transition:all .15s; }
+    .cta-btn-w:hover { transform:translateY(-2px); box-shadow:0 4px 20px rgba(0,0,0,0.2); }
+    .cta-btn-o { background:rgba(255,255,255,0.15); color:#fff; border:1.5px solid rgba(255,255,255,0.35); padding:0.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:0.9rem; text-decoration:none; transition:all .15s; }
+    .cta-btn-o:hover { background:rgba(255,255,255,0.25); }
+  </style>
 </head>
 <body>
   <div id="site-header"></div>
+  <main>
 
-  <main class="page-shell">
-    <div class="container about-page">
-
-      <!-- Banner púrpura -->
-      <div class="ab-banner">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
+    <!-- HERO -->
+    <section class="about-hero">
+      <div class="container about-hero-grid">
         <div>
-          <h1>Acerca del Observatorio</h1>
-          <p>Iniciativa académica de la Universidad Indoamérica dedicada al monitoreo, análisis y difusión de indicadores de salud pública en Tungurahua.</p>
+          <div class="about-hero-eyebrow"><span></span> Universidad Tecnológica Indoamérica</div>
+          <h1>Observatorio de<br><em>Salud Pública</em></h1>
+          <p class="about-hero-desc">Iniciativa académica dedicada al monitoreo, análisis y difusión de indicadores de salud pública en Tungurahua — generando conocimiento para transformar vidas.</p>
+          <div class="about-hero-actions">
+            <a href="contacto.html" class="btn-hero-primary" data-action="navigate" data-url="contacto.html">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Contáctanos
+            </a>
+            <a href="../index.html" class="btn-hero-secondary" data-action="navigate" data-url="../index.html">
+              Ver indicadores →
+            </a>
+          </div>
+        </div>
+        <div class="about-hero-nums">
+          <div class="hero-num-card"><strong>100+</strong><span>Publicaciones</span></div>
+          <div class="hero-num-card"><strong>15+</strong><span>Años de datos</span></div>
+          <div class="hero-num-card"><strong>6</strong><span>Indicadores</span></div>
+          <div class="hero-num-card"><strong>10+</strong><span>Alianzas</span></div>
         </div>
       </div>
+    </section>
 
-      <!-- Misión y Visión -->
-      <div class="ab-mv">
-        <div class="ab-mv-card">
-          <h3>Misión</h3>
-          <p>Generar, analizar y difundir información científica sobre indicadores de salud pública en Tungurahua, contribuyendo a la formulación de políticas basadas en evidencia y promoviendo el derecho a la salud de toda la población, con énfasis en grupos vulnerables y territorios prioritarios.</p>
-        </div>
-        <div class="ab-mv-card">
-          <h3>Visión</h3>
-          <p>Ser el referente provincial en vigilancia de indicadores de salud pública en Tungurahua, reconocido por la calidad técnica de sus análisis, la oportunidad de su información y su contribución al mejoramiento de las condiciones de salud y bienestar de la población de la provincia.</p>
-        </div>
+    <!-- BREADCRUMB -->
+    <div class="about-breadcrumb">
+      <div class="container">
+        <nav aria-label="Breadcrumb">
+          <a href="../index.html">Inicio</a>
+          <span class="sep">›</span>
+          <span>Acerca del Observatorio</span>
+        </nav>
       </div>
+    </div>
 
-      <!-- Equipo de Trabajo -->
-      <div class="ab-section">
-        <h2 class="ab-title">Equipo de Trabajo</h2>
-        <div class="ab-equipo">
-          <div class="ab-equipo-card">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            <strong>Dirección Académica</strong>
-            <span>Coordinación general y diseño metodológico</span>
+    <!-- BODY -->
+    <section class="about-body">
+      <div class="container">
+
+        <!-- MISIÓN / VISIÓN -->
+        <div class="mv-grid">
+          <div class="mv-card mision">
+            <div class="mv-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v8M8 12h8" stroke-width="2"/></svg>
+            </div>
+            <p class="mv-label">Misión</p>
+            <h3 class="mv-title">Lo que hacemos</h3>
+            <p class="mv-text">Generar, analizar y difundir información científica sobre indicadores de salud pública en Tungurahua, contribuyendo a la formulación de políticas basadas en evidencia y promoviendo el derecho a la salud de toda la población, con énfasis en grupos vulnerables y territorios prioritarios.</p>
           </div>
-          <div class="ab-equipo-card">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            <strong>Epidemiólogos</strong>
-            <span>Análisis de datos y vigilancia epidemiológica</span>
-          </div>
-          <div class="ab-equipo-card">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            <strong>Bioestadísticos</strong>
-            <span>Procesamiento y modelamiento estadístico</span>
-          </div>
-          <div class="ab-equipo-card">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            <strong>Investigadores de Campo</strong>
-            <span>Recolección y validación de información</span>
-          </div>
-          <div class="ab-equipo-card">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            <strong>Comunicadores</strong>
-            <span>Difusión de resultados y transferencia de conocimiento</span>
+          <div class="mv-card vision">
+            <div class="mv-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <p class="mv-label">Visión</p>
+            <h3 class="mv-title">Hacia dónde vamos</h3>
+            <p class="mv-text">Ser el referente provincial en vigilancia de indicadores de salud pública en Tungurahua, reconocido por la calidad técnica de sus análisis, la oportunidad de su información y su contribución al mejoramiento de las condiciones de salud y bienestar de la población de la provincia.</p>
           </div>
         </div>
-      </div>
 
-      <!-- Alianzas y Colaboraciones -->
-      <div class="ab-section">
-        <h2 class="ab-alianzas-title">Alianzas y Colaboraciones</h2>
-        <div class="ab-logos-section">
-          <div class="ab-logos-group">
-            <p class="ab-logos-label">Instituciones Nacionales</p>
-            <div class="ab-logos-grid">
-              <a href="https://www.salud.gob.ec" target="_blank" rel="noopener" class="ab-logo-card" title="Ministerio de Salud Pública">
-                <div class="ab-logo-svg-wrap" style="color:#006633">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v8M8 12h8" stroke-width="2"/></svg>
-                  <span>MSP</span>
-                </div>
-              </a>
-              <a href="https://www.ecuadorencifras.gob.ec" target="_blank" rel="noopener" class="ab-logo-card" title="Instituto Nacional de Estadística y Censos">
-                <div class="ab-logo-svg-wrap" style="color:#003087">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><rect x="12" y="12" width="3" height="6" fill="currentColor" stroke="none"/><rect x="16" y="14" width="3" height="4" fill="currentColor" stroke="none"/></svg>
-                  <span>INEC</span>
-                </div>
-              </a>
-              <a href="https://www.inclusion.gob.ec" target="_blank" rel="noopener" class="ab-logo-card" title="Ministerio de Inclusión Económica y Social">
-                <div class="ab-logo-svg-wrap" style="color:#e63946">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                  <span>MIES</span>
-                </div>
-              </a>
-              <a href="https://www.planificacion.gob.ec" target="_blank" rel="noopener" class="ab-logo-card" title="Secretaría Nacional de Planificación">
-                <div class="ab-logo-svg-wrap" style="color:#1d3557">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                  <span>SENPLADES</span>
-                </div>
-              </a>
-              <a href="https://www.gob.ec" target="_blank" rel="noopener" class="ab-logo-card" title="Gobiernos Autónomos Descentralizados">
-                <div class="ab-logo-svg-wrap" style="color:#457b9d">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                  <span>GADs</span>
-                </div>
-              </a>
+        <!-- VALORES -->
+        <div class="ab2-section">
+          <div class="ab2-section-head">
+            <div class="ab2-section-head-left">
+              <p class="ab2-section-label">Principios</p>
+              <h2 class="ab2-section-title">Nuestros Valores</h2>
+              <div class="ab2-section-line"></div>
             </div>
           </div>
-          <div class="ab-logos-group">
-            <p class="ab-logos-label">Organismos Internacionales</p>
-            <div class="ab-logos-grid">
-              <a href="https://www.paho.org" target="_blank" rel="noopener" class="ab-logo-card" title="Organización Panamericana de la Salud">
-                <div class="ab-logo-svg-wrap" style="color:#009cde">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                  <span>OPS/OMS</span>
-                </div>
-              </a>
-              <a href="https://www.unicef.org/es" target="_blank" rel="noopener" class="ab-logo-card" title="UNICEF">
-                <div class="ab-logo-svg-wrap" style="color:#00aeef">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                  <span>UNICEF</span>
-                </div>
-              </a>
-              <a href="https://www.wfp.org/es" target="_blank" rel="noopener" class="ab-logo-card" title="Programa Mundial de Alimentos">
-                <div class="ab-logo-svg-wrap" style="color:#009edb">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-                  <span>PMA</span>
-                </div>
-              </a>
-              <a href="https://www.who.int/es" target="_blank" rel="noopener" class="ab-logo-card" title="Organización Mundial de la Salud">
-                <div class="ab-logo-svg-wrap" style="color:#0093d5">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-                  <span>OMS</span>
-                </div>
-              </a>
-              <a href="https://www.un.org/es" target="_blank" rel="noopener" class="ab-logo-card" title="Organización de las Naciones Unidas">
-                <div class="ab-logo-svg-wrap" style="color:#4b92db">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M12 2v20"/></svg>
-                  <span>ONU</span>
-                </div>
-              </a>
+          <div class="valores-grid">
+            <div class="valor-card">
+              <div class="valor-icon" style="background:rgba(83,30,134,0.08)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h4>Rigor científico</h4>
+              <p>Toda nuestra información está respaldada por metodologías validadas y fuentes verificadas internacionalmente.</p>
+            </div>
+            <div class="valor-card">
+              <div class="valor-icon" style="background:rgba(245,112,33,0.08)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F57021" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <h4>Transparencia</h4>
+              <p>Datos abiertos y accesibles para toda la ciudadanía, sin restricciones, promoviendo la cultura de datos.</p>
+            </div>
+            <div class="valor-card">
+              <div class="valor-icon" style="background:rgba(39,174,96,0.08)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#27ae60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <h4>Equidad</h4>
+              <p>Enfoque prioritario en poblaciones vulnerables y territorios con mayores brechas sanitarias en la provincia.</p>
+            </div>
+            <div class="valor-card">
+              <div class="valor-icon" style="background:rgba(52,152,219,0.08)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <h4>Innovación</h4>
+              <p>Uso de tecnologías avanzadas de análisis de datos para generar conocimiento oportuno y accionable.</p>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Producción Científica trasladada a su propia página: pages/produccion-cientifica.html -->
-
-      <!-- CIFRAS DE IMPACTO -->
-      <div class="ab-impacto">
-        <h3 class="ab-section-title">Nuestro Impacto en Números</h3>
-        <div class="ab-impacto-grid">
-          <div class="ab-impacto-card">
-            <div class="ab-impacto-icon" style="background:rgba(83,30,134,0.1)">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <!-- IMPACTO EN NÚMEROS -->
+        <div class="ab2-section">
+          <div class="ab2-section-head">
+            <div class="ab2-section-head-left">
+              <p class="ab2-section-label">Resultados</p>
+              <h2 class="ab2-section-title">Nuestro Impacto en Números</h2>
+              <div class="ab2-section-line"></div>
             </div>
-            <strong>100+</strong>
-            <span>Publicaciones científicas</span>
           </div>
-          <div class="ab-impacto-card">
-            <div class="ab-impacto-icon" style="background:rgba(245,112,33,0.1)">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F57021" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <div class="impacto-grid">
+            <div class="impacto-card">
+              <div class="impacto-icon" style="background:rgba(83,30,134,0.08)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <strong style="color:#531E86">100+</strong>
+              <span>Publicaciones científicas</span>
             </div>
-            <strong>6</strong>
-            <span>Indicadores monitoreados</span>
-          </div>
-          <div class="ab-impacto-card">
-            <div class="ab-impacto-icon" style="background:rgba(39,174,96,0.1)">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#27ae60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div class="impacto-card">
+              <div class="impacto-icon" style="background:rgba(245,112,33,0.08)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F57021" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <strong style="color:#F57021">6</strong>
+              <span>Indicadores monitoreados</span>
             </div>
-            <strong>15+</strong>
-            <span>Años de datos históricos</span>
-          </div>
-          <div class="ab-impacto-card">
-            <div class="ab-impacto-icon" style="background:rgba(52,152,219,0.1)">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <div class="impacto-card">
+              <div class="impacto-icon" style="background:rgba(39,174,96,0.08)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#27ae60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <strong style="color:#27ae60">15+</strong>
+              <span>Años de datos históricos</span>
             </div>
-            <strong>10+</strong>
-            <span>Instituciones aliadas</span>
-          </div>
-          <div class="ab-impacto-card">
-            <div class="ab-impacto-icon" style="background:rgba(231,76,60,0.1)">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <div class="impacto-card">
+              <div class="impacto-icon" style="background:rgba(52,152,219,0.08)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <strong style="color:#3498db">10+</strong>
+              <span>Instituciones aliadas</span>
             </div>
-            <strong>Tungurahua</strong>
-            <span>Provincia de cobertura</span>
-          </div>
-          <div class="ab-impacto-card">
-            <div class="ab-impacto-icon" style="background:rgba(155,89,182,0.1)">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9b59b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            <div class="impacto-card">
+              <div class="impacto-icon" style="background:rgba(231,76,60,0.08)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <strong style="color:#e74c3c;font-size:1.4rem">Tungurahua</strong>
+              <span>Provincia de cobertura</span>
             </div>
-            <strong>24/7</strong>
-            <span>Monitoreo continuo</span>
+            <div class="impacto-card">
+              <div class="impacto-icon" style="background:rgba(155,89,182,0.08)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9b59b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+              </div>
+              <strong style="color:#9b59b6">24/7</strong>
+              <span>Monitoreo continuo</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- LÍNEA DE TIEMPO -->
-      <div class="ab-timeline">
-        <h3 class="ab-section-title">Historia del Observatorio</h3>
-        <div class="ab-timeline-list">
-          <div class="ab-tl-item">
-            <div class="ab-tl-dot"></div>
-            <div class="ab-tl-content">
-              <span class="ab-tl-year">2009</span>
+        <!-- EQUIPO -->
+        <div class="ab2-section">
+          <div class="ab2-section-head">
+            <div class="ab2-section-head-left">
+              <p class="ab2-section-label">Personas</p>
+              <h2 class="ab2-section-title">Equipo de Trabajo</h2>
+              <div class="ab2-section-line"></div>
+            </div>
+          </div>
+          <div class="equipo-grid">
+            <div class="equipo-card">
+              <div class="equipo-avatar">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <strong>Dirección Académica</strong>
+              <span>Coordinación general y diseño metodológico del observatorio</span>
+              <span class="equipo-badge">Liderazgo</span>
+            </div>
+            <div class="equipo-card">
+              <div class="equipo-avatar" style="background:linear-gradient(135deg,#F57021,#f97316)">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <strong>Epidemiólogos</strong>
+              <span>Análisis de datos y vigilancia epidemiológica territorial</span>
+              <span class="equipo-badge">Análisis</span>
+            </div>
+            <div class="equipo-card">
+              <div class="equipo-avatar" style="background:linear-gradient(135deg,#3498db,#2980b9)">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              </div>
+              <strong>Bioestadísticos</strong>
+              <span>Procesamiento y modelamiento estadístico de datos</span>
+              <span class="equipo-badge">Estadística</span>
+            </div>
+            <div class="equipo-card">
+              <div class="equipo-avatar" style="background:linear-gradient(135deg,#27ae60,#16a34a)">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <strong>Investigadores de Campo</strong>
+              <span>Recolección y validación de información en territorio</span>
+              <span class="equipo-badge">Campo</span>
+            </div>
+            <div class="equipo-card">
+              <div class="equipo-avatar" style="background:linear-gradient(135deg,#e91e8c,#be185d)">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+              </div>
+              <strong>Comunicadores</strong>
+              <span>Difusión de resultados y transferencia de conocimiento</span>
+              <span class="equipo-badge">Difusión</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- HISTORIA / TIMELINE -->
+        <div class="ab2-section">
+          <div class="ab2-section-head">
+            <div class="ab2-section-head-left">
+              <p class="ab2-section-label">Trayectoria</p>
+              <h2 class="ab2-section-title">Historia del Observatorio</h2>
+              <div class="ab2-section-line"></div>
+            </div>
+          </div>
+          <div class="timeline-wrap">
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <span class="tl-year">2009</span>
               <h4>Fundación</h4>
               <p>El Observatorio de Salud Pública de la UTI es creado como respuesta a la necesidad de datos epidemiológicos territoriales en Tungurahua.</p>
             </div>
-          </div>
-          <div class="ab-tl-item">
-            <div class="ab-tl-dot"></div>
-            <div class="ab-tl-content">
-              <span class="ab-tl-year">2012</span>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <span class="tl-year">2012</span>
               <h4>Primera alianza nacional</h4>
               <p>Se firma convenio con el Ministerio de Salud Pública para el intercambio de datos epidemiológicos y vigilancia sanitaria.</p>
             </div>
-          </div>
-          <div class="ab-tl-item">
-            <div class="ab-tl-dot"></div>
-            <div class="ab-tl-content">
-              <span class="ab-tl-year">2016</span>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <span class="tl-year">2016</span>
               <h4>Expansión de indicadores</h4>
               <p>Se incorporan los indicadores de agua segura, discapacidades y salud mental al sistema de monitoreo continuo.</p>
             </div>
-          </div>
-          <div class="ab-tl-item">
-            <div class="ab-tl-dot"></div>
-            <div class="ab-tl-content">
-              <span class="ab-tl-year">2020</span>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <span class="tl-year">2020</span>
               <h4>Respuesta COVID-19</h4>
               <p>El Observatorio lidera el análisis epidemiológico provincial durante la pandemia, apoyando decisiones de política sanitaria de emergencia.</p>
             </div>
-          </div>
-          <div class="ab-tl-item">
-            <div class="ab-tl-dot ab-tl-dot-active"></div>
-            <div class="ab-tl-content">
-              <span class="ab-tl-year">2024</span>
+            <div class="tl-item">
+              <div class="tl-dot active"></div>
+              <span class="tl-year">2024</span>
               <h4>Plataforma digital</h4>
               <p>Lanzamiento de la plataforma web interactiva con acceso público a datos, reportes y visualizaciones en tiempo real.</p>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- VALORES -->
-      <div class="ab-valores">
-        <h3 class="ab-section-title">Nuestros Valores</h3>
-        <div class="ab-valores-grid">
-          <div class="ab-valor-card">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#531E86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <h4>Rigor científico</h4>
-            <p>Toda nuestra información está respaldada por metodologías validadas y fuentes verificadas.</p>
+        <!-- ALIANZAS -->
+        <div class="ab2-section">
+          <div class="ab2-section-head">
+            <div class="ab2-section-head-left">
+              <p class="ab2-section-label">Red institucional</p>
+              <h2 class="ab2-section-title">Alianzas y Colaboraciones</h2>
+              <div class="ab2-section-line"></div>
+            </div>
           </div>
-          <div class="ab-valor-card">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F57021" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            <h4>Transparencia</h4>
-            <p>Datos abiertos y accesibles para toda la ciudadanía, sin restricciones de acceso.</p>
+          <div class="alianzas-group">
+            <p class="alianzas-group-label">Instituciones Nacionales</p>
+            <div class="alianzas-logos">
+              <a href="https://www.salud.gob.ec" target="_blank" rel="noopener" class="alianza-logo">
+                <div class="al-icon" style="background:rgba(0,102,51,0.08)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#006633" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v8M8 12h8" stroke-width="2"/></svg></div>
+                MSP
+              </a>
+              <a href="https://www.ecuadorencifras.gob.ec" target="_blank" rel="noopener" class="alianza-logo">
+                <div class="al-icon" style="background:rgba(0,48,135,0.08)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+                INEC
+              </a>
+              <a href="https://www.inclusion.gob.ec" target="_blank" rel="noopener" class="alianza-logo">
+                <div class="al-icon" style="background:rgba(230,57,70,0.08)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e63946" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                MIES
+              </a>
+              <a href="https://www.planificacion.gob.ec" target="_blank" rel="noopener" class="alianza-logo">
+                <div class="al-icon" style="background:rgba(29,53,87,0.08)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d3557" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                SENPLADES
+              </a>
+              <a href="https://www.gob.ec" target="_blank" rel="noopener" class="alianza-logo">
+                <div class="al-icon" style="background:rgba(69,123,157,0.08)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#457b9d" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+                GADs
+              </a>
+            </div>
           </div>
-          <div class="ab-valor-card">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#27ae60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            <h4>Equidad</h4>
-            <p>Enfoque prioritario en poblaciones vulnerables y territorios con mayores brechas sanitarias.</p>
-          </div>
-          <div class="ab-valor-card">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3498db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            <h4>Innovación</h4>
-            <p>Uso de tecnologías de análisis de datos para generar conocimiento oportuno y accionable.</p>
+          <div class="alianzas-group">
+            <p class="alianzas-group-label">Organismos Internacionales</p>
+            <div class="alianzas-logos">
+              <a href="https://www.paho.org" target="_blank" rel="noopener" class="alianza-logo">
+                <div class="al-icon" style="background:rgba(0,156,222,0.08)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#009cde" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                OPS/OMS
+              </a>
+              <a href="https://www.unicef.org/es" target="_blank" rel="noopener" class="alianza-logo">
+                <div class="al-icon" style="background:rgba(0,174,239,0.08)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00aeef" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                UNICEF
+              </a>
+              <a href="https://www.wfp.org/es" target="_blank" rel="noopener" class="alianza-logo">
+                <div class="al-icon" style="background:rgba(0,158,219,0.08)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#009edb" stroke-width="1.8"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></div>
+                PMA
+              </a>
+              <a href="https://www.who.int/es" target="_blank" rel="noopener" class="alianza-logo">
+                <div class="al-icon" style="background:rgba(0,147,213,0.08)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0093d5" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+                OMS
+              </a>
+              <a href="https://www.un.org/es" target="_blank" rel="noopener" class="alianza-logo">
+                <div class="al-icon" style="background:rgba(75,146,219,0.08)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4b92db" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2v20"/></svg></div>
+                ONU
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-    </div>
+        <!-- CTA FINAL -->
+        <div class="about-cta">
+          <div>
+            <h3>¿Quieres colaborar con nosotros?</h3>
+            <p>Estamos abiertos a alianzas con instituciones académicas, gubernamentales y organismos internacionales.</p>
+          </div>
+          <div class="about-cta-btns">
+            <a href="contacto.html" class="cta-btn-w" data-action="navigate" data-url="contacto.html">Contáctanos</a>
+            <a href="reportes.html" class="cta-btn-o" data-action="navigate" data-url="reportes.html">Ver reportes</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
   </main>
 
   <div id="site-footer"></div>
   <script src="../assets/js/main.js"></script>
-  <script>
-    function enviarForm(e) {
-      e.preventDefault();
-      document.getElementById('form-ok').style.display = 'block';
-      e.target.reset();
-      setTimeout(() => { document.getElementById('form-ok').style.display = 'none'; }, 5000);
-    }
-  </script>
 </body>
 </html>
-
